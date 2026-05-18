@@ -803,3 +803,48 @@ footer {
   footer { padding: 24px 32px; }
   .cta { padding: 80px 32px; }
 }
+.cta-card {
+  background: rgba(249,218,234,0.08);
+  border: 1px solid rgba(249,218,234,0.2);
+  border-radius: 16px;
+  padding: 32px 40px;
+  display: inline-block;
+  text-align: left;
+  margin-top: 8px;
+}
+.cta-card-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(249,218,234,0.45);
+  margin-bottom: 12px;
+}
+.cta-card-name {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--pink);
+  margin-bottom: 4px;
+}
+.cta-card-role {
+  font-family: var(--font);
+  font-size: 14px;
+  color: rgba(249,218,234,0.55);
+  margin-bottom: 20px;
+}
+.cta-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cta-card-link {
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--lilac);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cta-card-link:hover {
+  color: var(--pink);
+}
