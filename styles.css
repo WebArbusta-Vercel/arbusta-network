@@ -616,6 +616,17 @@ section {
   gap: 16px;
 }
 
+.icp-logos-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+}
+
+.icp-logos-wrapper > .caso-num {
+  margin-bottom: 8px;
+}
+
 .icp-logos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -627,6 +638,7 @@ section {
   border-radius: 14px;
   padding: 20px 24px;
   flex: 1;
+  min-height: 0;
 }
 
 .icp-logo {
@@ -643,6 +655,12 @@ section {
 .icp-logo:hover {
   filter: grayscale(0%);
   opacity: 1;
+}
+
+.icp-logo[alt="dLocal"],
+.icp-logo[alt="Kavak"],
+.icp-logo[alt="PedidosYa"] {
+  transform: scale(0.75);
 }
 
 .icp-logo[alt="Grupo Nutresa"],
