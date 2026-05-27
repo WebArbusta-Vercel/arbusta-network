@@ -44,3 +44,24 @@ if (document.fonts) {
   window.addEventListener('load', matchStatWidths);
 }
 window.addEventListener('resize', matchStatWidths);
+
+// Casos carousel
+(function(){
+  const slides = document.querySelectorAll('.caso-slide');
+  const dots = document.querySelectorAll('[data-idx]');
+  if(!slides.length) return;
+  let cur = 0;
+  function go(n){
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('caso-dot-active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('caso-dot-active');
+  }
+  dots.forEach((d,i) => d.addEventListener('click', () => go(i)));
+  const prev = document.getElementById('casoPrev');
+  const next = document.getElementById('casoNext');
+  if(prev) prev.addEventListener('click', () => go(cur - 1));
+  if(next) next.addEventListener('click', () => go(cur + 1));
+  setInterval(() => go(cur + 1), 5000);
+})();
