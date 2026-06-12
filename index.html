@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Programa de Referidos · Arbusta</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,700;0,800;1,400&family=EB+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
 <style>
 :root {
   --aubergine: #2a103e;
@@ -660,12 +659,286 @@ footer {
 .logo-full { height: 36px; width: auto; }
 .logo-footer { height: 28px; width: auto; }
 </style>
-</head>
+<script src="chrome-extension://hmdmhilocobgohohpdpolmibjklfgkbi/pageScript.js"></script><link rel="icon" type="image/svg+xml" href="https://arbusta.net/assets/favicon.svg"><style>
+/* ── AJUSTES UX ────────────────────────────────────────────────── */
+.nav-logo { height: 46px !important; }
+.footer-logo, footer img { height: 44px !important; width: auto !important; }
+
+.hero-sub, p.lead, .kit-sub {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
+  font-style: normal !important;
+  line-height: 1.7 !important;
+}
+.hero-sub { font-size: 1.2rem !important; max-width: 580px; }
+p.lead, .kit-sub { font-size: 1.1rem !important; }
+
+.kit-actions { flex-wrap: wrap; gap: 12px; }
+</style><style id="claude-agent-animation-styles">
+      @keyframes claude-pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+      }
+      #claude-agent-glow-border-inner {
+        animation: claude-pulse 2s ease-in-out infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #claude-agent-glow-border-inner {
+          animation: none;
+        }
+      }
+    </style><style>
+.comp-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.comp-tiers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.comp-tier {
+  background: rgba(71,41,176,0.18);
+  border: 1px solid rgba(157,122,253,0.25);
+  border-radius: 14px;
+  padding: 24px 22px;
+  position: relative;
+}
+
+.comp-tier--plus {
+  border-color: rgba(157,122,253,0.55);
+  background: rgba(71,41,176,0.28);
+}
+
+.comp-tier-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--aubergine);
+  background: var(--lilac);
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin-bottom: 12px;
+}
+
+.comp-tier-pct {
+  font-size: 52px;
+  font-weight: 800;
+  color: var(--lilac);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.comp-tier-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.comp-tier-desc {
+  font-size: 13px;
+  color: rgba(249,218,234,0.65);
+  line-height: 1.55;
+}
+
+.comp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comp-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(249,218,234,0.82);
+  line-height: 1.6;
+}
+
+.comp-bullet-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lilac);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.comp-bullets li strong {
+  color: var(--white);
+}
+</style><style id="comp-styles">
+.comp-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.comp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.comp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: rgba(71,41,176,0.15);
+  border: 1px solid rgba(157,122,253,0.2);
+  border-radius: 14px;
+  padding: 24px 26px;
+  transition: background 0.2s;
+}
+
+.comp-item--highlight {
+  border-color: rgba(157,122,253,0.55);
+  background: rgba(71,41,176,0.28);
+}
+
+.comp-item-pct {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--lilac);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 80px;
+}
+
+.comp-item-body {
+  padding-top: 4px;
+}
+
+.comp-item-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--aubergine);
+  background: var(--lilac);
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin-bottom: 8px;
+}
+
+.comp-item-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.comp-item-desc {
+  font-size: 13px;
+  color: rgba(249,218,234,0.65);
+  line-height: 1.55;
+}
+
+.comp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.comp-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(249,218,234,0.82);
+  line-height: 1.6;
+}
+
+.comp-bullet-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lilac);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.comp-bullets li strong {
+  color: var(--white);
+}
+</style><style id="arbusta-redesign-v2">
+  /* ===== NAV: Add '> ' prefix to links like arbusta.net ===== */
+  nav a::before {
+    content: '> ';
+    color: #9d7afd;
+    font-weight: 600;
+  }
+
+  /* ===== SECTION TAGS: Remove dot, use clean label ===== */
+  .section-tag::before, 
+  [class*="section-tag"]::before,
+  .overline::before,
+  .tag-label::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* ===== HERO: Larger title typography ===== */
+  .hero h1, 
+  #hero h1,
+  section.hero h1 {
+    font-size: clamp(52px, 7vw, 72px) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -1px !important;
+  }
+
+  /* ===== CTA BUTTONS: Adjust padding ===== */
+  .btn-primary, .btn-secondary, .btn-outline {
+    padding: 13px 36px !important;
+  }
+
+  /* ===== ALTERNATING SECTIONS: Light/dark like arbusta.net ===== */
+  /* Keep the first/hero dark, then alternate */
+  
+  /* ===== CARDS: Improve hover and borders ===== */
+  .card, .step-card, .feature-card, [class*="card"] {
+    border: 1px solid rgba(157,122,253,0.2) !important;
+    transition: border-color 0.2s ease, transform 0.2s ease !important;
+  }
+  .card:hover, .step-card:hover, .feature-card:hover, [class*="card"]:hover {
+    border-color: rgba(157,122,253,0.6) !important;
+    transform: translateY(-2px) !important;
+  }
+</style><style id="fix-section-tags">
+  .section-tag::before { content: '' !important; display: none !important; width: 0 !important; height: 0 !important; margin: 0 !important; padding: 0 !important; }
+  .section-tag { padding-left: 0 !important; display: flex !important; align-items: center !important; gap: 0 !important; }
+</style><style id="dark-card-fix">
+  /* Ensure all sections use dark purple */
+  section {
+    background: inherit;
+  }
+  /* Cards in dark sections */
+  .card, .step-card, .feature-card, [class*="card"] {
+    background: rgba(255,255,255,0.07) !important;
+    color: inherit !important;
+    box-shadow: none !important;
+  }
+</style></head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDc1OCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJBcmJ1c3RhIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYXJidXN0YUdyYWQiIHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjN0IyRDhFIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjQTgyQUI2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0M3MkJDMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBTw61tYm9sbyAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMDAuMDAgNDAuMDApIHNjYWxlKDAuODI0MTc2KSIgZmlsbD0idXJsKCNhcmJ1c3RhR3JhZCkiPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA1OTEpIHNjYWxlKDAuMSAtMC4xKSI+CiAgICA8cGF0aCBkPSJNMzYwOCA1Nzk3IGMtNyAtOCAtNDkgLTczIC05MyAtMTQ1IC00NCAtNzMgLTEzOCAtMjIzIC0yMDkgLTMzNCAtNzEKLTExMiAtMTgwIC0yODYgLTI0NCAtMzg4IC0xNzEgLTI3NiAtMTgyIC0yOTMgLTI0NyAtMzkyIC0zMyAtNTEgLTgyIC0xMjkKLTExMCAtMTc1IC0yNyAtNDUgLTg4IC0xNDMgLTEzNSAtMjE4IC00NyAtNzUgLTg5IC0xNDMgLTk1IC0xNTMgLTExIC0yMCAtMTQxCi0yMjUgLTIxOSAtMzQ2IC0yOCAtNDQgLTU1IC04OCAtNjEgLTk4IC01IC0xMCAtNjQgLTEwNCAtMTMwIC0yMDggLTY2IC0xMDUKLTE0MiAtMjI3IC0xNzAgLTI3MSAtMjcgLTQ0IC04NiAtMTM3IC0xMzAgLTIwNyAtNDQgLTY5IC04NCAtMTM0IC05MCAtMTQ0Ci0xNiAtMjggLTE5MyAtMzEwIC0zNzUgLTU5OCAtMTM4IC0yMTggLTQ5MyAtNzgzIC01NTAgLTg3NSAtNTggLTkyIC01MTcgLTgyMwotNTUxIC04NzUgLTgxIC0xMjcgLTE2OSAtMjc3IC0xNjkgLTI5MCAwIC05IDUgLTIxIDEyIC0yOCA5IC05IDI5NCAtMTIgMTIyMwotMTIgNjY1IDAgMTIxNSA0IDEyMjEgOCA2IDQgMzcgNDcgNjkgOTcgMTAyIDE1OSAxNDAgMjE4IDIxMyAzMjggNDAgNTkgNzIKMTEwIDcyIDExMiAwIDMgMzYgNTkgODAgMTI2IDQ0IDY2IDgwIDEyMiA4MCAxMjQgMCAzIDI2IDQ0IDU4IDkyIDMzIDQ4IDEwNgoxNjIgMTY0IDI1MyA1OCA5MSAxMzggMjE3IDE4MCAyODAgNDEgNjMgMTAzIDE2MCAxMzggMjE1IDcwIDExMCA5OCAxNDUgMTE1CjE0NSAxNCAwIDE1IC0xIDM1NyAtNTUwIDE1MiAtMjQ1IDMwMiAtNDgzIDMzMSAtNTMwIDMwIC00NyAxMDEgLTE1OSAxNTcgLTI1MAo1NiAtOTEgMTEzIC0xODEgMTI1IC0yMDAgMTMgLTE5IDQ2IC03MyA3NSAtMTIwIDI5IC00NyA2MiAtOTUgNzMgLTEwOCBsMjAKLTIyIDEyMTcgMCBjOTMyIDAgMTIxOSAzIDEyMjggMTIgMjUgMjUgMTcgNDMgLTE0OCAzMDIgLTggMTMgLTMwIDQ4IC00OCA3NwotMTggMzAgLTc3IDEyNCAtMTMxIDIwOSAtNTQgODUgLTEzNCAyMTEgLTE3NiAyODAgLTQzIDY5IC0xMDIgMTYyIC0xMzEgMjA2Ci0zMCA0NSAtNTcgOTAgLTYxIDEwMCAtMyAxMSAtMTAgMjEgLTEzIDI0IC02IDQgLTIwNyAzMjIgLTM2MyA1NzUgLTI3IDQ0IC02NwoxMDYgLTg4IDEzOCAtMjEgMzIgLTM5IDYwIC0zOSA2MyAwIDMgLTEwIDIwIC0yMiAzNyAtMTMgMTcgLTI3IDQwIC0zMyA0OSAtNQoxMCAtODQgMTM2IC0xNzUgMjgwIC05MSAxNDQgLTIwNiAzMjggLTI1NiA0MDggLTQ5IDgwIC0xNTAgMjM5IC0yMjIgMzUzIC03MwoxMTUgLTEzMiAyMTEgLTEzMiAyMTQgMCAzIC0xMSAyMCAtMjMgMzcgLTEzIDE3IC03MSAxMDggLTEyOSAyMDEgLTU4IDk0IC0xMzIKMjExIC0xNjQgMjYyIC0xMDYgMTY1IC0xMTkgMTg1IC0xMzUgMjE0IC05IDE1IC0zNCA1NiAtNTYgOTEgLTIyIDM1IC03NCAxMTYKLTExNCAxODEgLTQxIDY1IC0xMjcgMjAyIC0xOTIgMzA1IC02NSAxMDMgLTEzNyAyMTggLTE2MCAyNTYgLTIzIDM3IC00NyA3NgotNTIgODUgLTYgOSAtMzUgNTQgLTY1IDEwMCAtMzAgNDYgLTY2IDEwMyAtODAgMTI2IC01OSAxMDAgLTM0NCA1NTIgLTM1OCA1NjgKLTE4IDIwIC00NSAyMiAtNjQgNHogbTk5IC0xNDgyIGMyOCAtNDQgNjcgLTEwNSA4NiAtMTM1IDE5IC0zMCA1OSAtOTMgODkKLTE0MCAzMCAtNDcgNjUgLTEwMyA3OCAtMTI1IDEzIC0yMiA1NiAtODkgOTUgLTE1MCA0MCAtNjAgMTExIC0xNzMgMTYwIC0yNTAKNDggLTc3IDEwMiAtMTYyIDEyMCAtMTkwIDE4IC0yNyA2MCAtOTUgOTUgLTE1MCAzNCAtNTUgNzAgLTExMSA3OSAtMTI1IDggLTE0CjIyIC0zNyAzMSAtNTEgOCAtMTUgNzggLTEyNiAxNTUgLTI0OCA3NyAtMTIxIDE1MyAtMjQyIDE2OSAtMjY4IDE2IC0yNyAxMTYKLTE4NSAyMjEgLTM1MyA0MTkgLTY2NiA3NTEgLTEyMDUgNzk5IC0xMjk4IDggLTE2IDEyIC0zMiA5IC0zNiAtNCAtMyAtMTUzIC02Ci0zMzMgLTYgLTI0NiAwIC0zMzAgMyAtMzQyIDEzIC0xMyAxMCAtMTA5IDE2MCAtMTY5IDI2NCAtOSAxNSAtNDcgNzggLTg0IDEzOAotMzcgNjEgLTc1IDEyMiAtODQgMTM3IC00NSA3NiAtMTM5IDIzMiAtMjQwIDM5OCAtNjIgMTAyIC0xNDYgMjM5IC0xODYgMzA1Ci00MCA2NiAtMTQ0IDIzNyAtMjMwIDM4MCAtODcgMTQzIC0xOTggMzI4IC0yNDggNDEwIC00OSA4MyAtOTggMTYxIC0xMDcgMTc1Ci0xMCAxNCAtMjcgNDEgLTM4IDYwIC03MCAxMjQgLTE0NyAyNDIgLTE2NCAyNTEgLTI3IDE0IC0zNiA1IC0xMTQgLTExOSAtMTA5Ci0xNzQgLTE1OCAtMjUyIC0yMTcgLTM0NyAtMzEgLTQ5IC02MSAtOTUgLTY3IC0xMDIgLTUgLTcgLTEwIC0xNCAtMTAgLTE3IDAKLTYgLTEzMiAtMjIwIC0xNDAgLTIyNiAtMyAtMyAtMTggLTI1IC0zMSAtNTAgLTI1IC00NCAtMzEyIC01MDQgLTQ5NCAtNzkwCi01MCAtODAgLTEyOSAtMjA2IC0xNzYgLTI4MCAtNDYgLTc0IC04NyAtMTM2IC05MSAtMTM4IC00IC0yIC04IC04IC04IC0xNCAwCi01IC0yNiAtNTEgLTU4IC0xMDEgLTMzIC01MSAtOTAgLTE0MSAtMTI3IC0yMDIgLTM3IC02MCAtNzcgLTExOCAtODggLTEyNwotMTcgLTE2IC00NyAtMTggLTMxNCAtMTggLTI4MyAwIC0zMzMgNSAtMzMzIDMxIDAgNSAxNSAzMyAzNCA2MiAxMTQgMTc4IDMyOAo1MjUgMzQ4IDU2NSA2IDEyIDE1IDIyIDIwIDIyIDQgMCA4IDUgOCAxMCAwIDYgMTcgMzcgMzcgNjggMjEgMzEgNDIgNjYgNDkgNzcKMTQgMjYgMjM1IDM4MSAzNzQgNjAwIDExNiAxODUgMzQzIDU0OCAzNzUgNjAyIDExIDE4IDc3IDEyNCAxNDcgMjM1IDY5IDExMgoxNDggMjM4IDE3NSAyODEgMjYgNDMgNzEgMTE1IDk5IDE2MCAyOCA0NSA2OCAxMTAgOTAgMTQ0IDk0IDE1MCAyNjkgNDMwIDM1NAo1NjggMTAxIDE2NCAxMTggMTg3IDEzNCAxODIgNiAtMSAzNCAtMzkgNjMgLTgyeiIvPgogICAgPC9nPgogIDwvZz4KICA8IS0tIFdvcmRtYXJrIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMC4wMCA1ODcuMDkpIHNjYWxlKDAuODQzMTcwKSIgZmlsbD0iI2Y5ZGFlYSI+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDE1NSkgc2NhbGUoMC4xIC0wLjEpIj4KICAgIDxwYXRoIGQ9Ik03Nzc3IDE1MTggYy0yMTIgLTE2IC0zODIgLTExOSAtNDU1IC0yNzUgLTI0IC01MiAtMjcgLTcwIC0yNyAtMTYzCjAgLTg3IDQgLTExMyAyMiAtMTUzIDY5IC0xNTAgMTkwIC0yMjEgNTA1IC0yOTIgODEgLTE5IDE3MCAtNDQgMTk4IC01NiAxMDAKLTQzIDEyOCAtMTE2IDY5IC0xODQgLTQzIC00OSAtMTE1IC02OSAtMjI4IC02MyAtMTA3IDUgLTE1MCAyNiAtMjE1IDEwMiBsLTQ4CjU2IC0xNjQgMCBjLTE2NCAwIC0xNjQgMCAtMTc1IC0yNCAtOCAtMTcgLTggLTM4IDAgLTc2IDMzIC0xNTYgMTcxIC0yODEgMzcxCi0zMzcgNTIgLTE0IDEwMiAtMTggMjQ1IC0xOCAxNTkgMCAxOTAgMyAyNjAgMjMgMTYxIDQ3IDI4MSAxMzkgMzM5IDI2MSAyOSA2MQozMSA3NCAzMSAxNzEgMCA5OCAtMyAxMDkgLTMyIDE2NSAtNzQgMTQzIC0xNTkgMTg2IC01NjggMjg0IC0xNjggNDEgLTIyNyA4MQotMjI3IDE1NiAwIDc5IDY5IDEyNSAxODcgMTI1IDQ3IDAgODQgLTcgMTExIC0xOSAzNyAtMTcgNTEgLTMxIDEwMiAtOTkgMTcKLTIzIDIwIC0yNCAxOTIgLTIyIDEyNSAwIDE3NyA0IDE4MyAxMyAxNCAyMSAtMiA5NyAtMzQgMTU4IC0xMDIgMTkyIC0zMzkgMjkwCi02NDIgMjY3eiIvPgogICAgPHBhdGggZD0iTTU0MyAxNDgwIGMtOSAtMTAgLTM3IC03NSAtNjEgLTE0MiAtMjQgLTY4IC01NCAtMTUwIC02NyAtMTgzIC0zMwotOTAgLTM0NSAtOTQxIC0zNjkgLTEwMDggLTMyIC05MCAtMzAgLTkyIDE2MCAtOTQgODcgLTIgMTY1IDEgMTcyIDYgOCA0IDMzCjU5IDU3IDEyMiBsNDMgMTE0IDI3OSAzIDI3OCAyIDQwIC0xMDcgYzIyIC01OSA0OCAtMTE2IDU3IC0xMjUgMTYgLTE2IDM4IC0xOAoxNzIgLTE4IDE0NiAwIDE1NiAxIDE2OSAyMSAxNCAxOSAxMiAyOSAtMTUgMTAyIC01NyAxNTUgLTg1IDIzMyAtMjEyIDU4MgotMjAyIDU1NiAtMjU2IDcwMSAtMjcyIDcyNCAtMTUgMjAgLTIyIDIxIC0yMTUgMjEgLTE4NiAwIC0yMDAgLTEgLTIxNiAtMjB6Cm0zMTEgLTYwNiBjNDYgLTEzMSA4NyAtMjQ3IDkxIC0yNTYgNyAtMTcgLTYgLTE4IC0xODQgLTE4IC0xMDUgMCAtMTkxIDMgLTE5MQo4IDAgMjYgMTg2IDUyOSAxOTIgNTE4IDQgLTcgNDUgLTEyMCA5MiAtMjUyeiIvPgogICAgPHBhdGggZD0iTTE5ODMgMTQ4OSBjLTIwIC0yMCAtMTkgLTE0MTIgMSAtMTQyOCA5IC04IDY1IC0xMSAxNzcgLTkgMTYzIDMgMTYzCjMgMTc2IDI4IDkgMTggMTMgODkgMTMgMjUzIGwwIDIyOCAxMDIgLTMgMTAzIC0zIDEyMCAtMjMyIGM2NiAtMTI3IDEyOSAtMjQwCjEzOSAtMjUyIDE4IC0yMCAyOSAtMjEgMTkzIC0yMSBsMTczIDAgMTEgMjQgYzEwIDIyIC00IDUyIC0xMzUgMjg3IC04MCAxNDQKLTE0NSAyNjMgLTE0NCAyNjQgMiAxIDE3IDkgMzQgMTggNDcgMjQgMTMwIDEwMyAxNTcgMTUwIDM5IDY2IDU3IDE0MiA1NyAyMzYKMCAyMjYgLTEwMiAzNjcgLTMxOCA0MzkgLTc3IDI2IC03NyAyNiAtNDYyIDMwIC0zMDAgMiAtMzg4IDAgLTM5NyAtOXogbTcwNAotMzAwIGM2MiAtMzAgODYgLTgwIDgxIC0xNzAgLTMgLTU5IC04IC03MyAtMzMgLTEwMCAtNDkgLTUyIC03OSAtNTkgLTI0MCAtNTkKbC0xNDUgMCAwIDE3NSAwIDE3NSAxNDcgMCBjMTI5IDAgMTUyIC0zIDE5MCAtMjF6IG0tMiAtNTYzIGMxMjEKLTU4IDExOSAtMjM4IC0yIC0yOTkgLTMzIC0xOCAtNTkgLTIwIC0yMDYgLTIwIGwtMTY4IDAgMCAxNzAgMCAxNzAgMTY3IDAKYzE0OCAwIDE3MSAtMiAyMDkgLTIxeiIvPgogICAgPHBhdGggZD0iTTM3MzYgMTQ4NCBjLTE0IC0xNCAtMTYgLTkxIC0xNiAtNzAyIDAgLTYwNiAyIC02OTAgMTYgLTcxMCBsMTUgLTIyCjM5MiAwIGM0MzEgMCA0ODIgNSA1OTIgNTkgMTIyIDYwIDE5NiAxNjcgMjE3IDMxMSAxMyA4OCA0IDE1OCAtMjkgMjI3IC0xOCAzOAotMTAzIDEzMiAtMTM1IDE1MCAtMTYgOCAtOSAxNyA0NiA3NSA1MyA1MyA2OCA3NyA4MiAxMjQgMjAgNjkgMTUgMTcwIC0xMiAyNTMKLTIzIDY5IC0xMDMgMTU3IC0xNzYgMTk0IC0xMDEgNTEgLTE1NyA1NyAtNTg1IDU3IC0zNDMgMCAtMzk0IC0yIC00MDcgLTE2egptNzQyIC0yODIgYzQxIC0zMCA1NSAtNTYgNTcgLTExMiAzIC01NyAtMjQgLTExNCAtNjggLTE0MCAtMjggLTE4IC01MSAtMjAKLTE5OSAtMjAgbC0xNjggMCAwIDE1MSAwIDE1MSAxNzMgLTQgYzE2MSAtMyAxNzQgLTQgMjA1IC0yNnoKbS0yIC01NjMgYzEyMQotNTggMTE5IC0yMzggLTIgLTI5OSAtMzMgLTE4IC01OSAtMjAgLTIwNiAtMjAgbC0xNjggMCAwIDE3MCAwIDE3MCAxNjcgMAoiLz4KICAgIDxwYXRoIGQ9Ik01NTA0IDE0NzYgYy0xNCAtMjIgLTE1IC03OCAtMTIgLTUwOCA0IC00MjAgNyAtNDkxIDIyIC01NDMgMjggLTk4CjYyIC0xNjIgMTE3IC0yMjAgNjYgLTcwIDEyNCAtMTA3IDIyNCAtMTQyIDc2IC0yNiA4OSAtMjggMjYwIC0yOCAxOTMgMCAyNDQKMTAgMzY2IDcxIDEyMCA2MCAyMTIgMTg5IDI0NCAzMzkgMTkgOTMgMjIgMTAyNCAzIDEwNDMgLTE0IDE0IC0zMjQgMTcgLTM0NSA0Ci05IC01IC0xMyAtMTMxIC0xNiAtNDg3IC00IC01MzUgLTMgLTUzMSAtNzIgLTYwMCAtNDYgLTQ2IC05OCAtNjUgLTE3NiAtNjUKLTExMCAwIC0xODMgNDMgLTIyMyAxMzAgLTIwIDQzIC0yMSA2MyAtMjQgNTI1IC0yIDMyMSAtNyA0ODQgLTE0IDQ5MiAtOCAxMAotNTMgMTMgLTE3NCAxMyAtMTYyIDAgLTE2NCAwIC0xODAgLTI0eiIvPgogICAgPHBhdGggZD0iTTg5MzIgMTQ4OCBjLTggLTggLTEyIC01NiAtMTIgLTE0OSAwIC0xODAgLTE1IC0xNjkgMjMyIC0xNjkgbDE4OCAwCjAgLTU0MSBjMCAtMzUzIDQgLTU0NyAxMCAtNTYwIDEwIC0xOCAyMyAtMTkgMTgwIC0xOSAxNTcgMCAxNzAgMSAxODAgMTkgNiAxMwoxMCAyMDcgMTAgNTYwIGwwIDU0MSAxODggMCBjMjQ3IDAgMjMyIC0xMSAyMzIgMTY5IDAgOTMgLTQgMTQxIC0xMiAxNDkgLTE3CjE3IC0xMTc5IDE3IC0xMTk2IDB6Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K" alt="Arbusta" class="logo-full">
+  <img src="https://arbusta.net/assets/logo-arbusta.svg" alt="Arbusta" class="logo-full" style="height: 52px; overflow: visible; width: auto;">
   <ul class="nav-links">
     <li><a href="#que-es">El programa</a></li>
     <li><a href="#que-vendemos">Qué vendemos</a></li>
@@ -682,20 +955,17 @@ footer {
   <div class="hero-blob hero-blob-1"></div>
   <div class="hero-blob hero-blob-2"></div>
   <div class="hero-inner">
-    <p class="hero-kicker">Programa de referidos · Arbusta</p>
-    <h1 class="hero-title">
+    <p class="hero-kicker" style="font-size: 18px; line-height: 1.6; max-width: 540px; opacity: 0.85;">Programa de referidos · Arbusta</p>
+    <h1 class="hero-title" style="font-size: clamp(52px, 7vw, 72px); line-height: 1.05; letter-spacing: -1px;">
       Referí clientes.<br>
-      <span>Generá impacto real.</span>
+      <span>Generá <mark style="background: rgb(157,122,253); color: #f2f0f2; padding: 2px 8px; border-radius: 6px; font-style: normal;">impacto real</mark>.</span>
     </h1>
     <p class="hero-sub">
       Conectá a tu red con Arbusta y ganá una comisión cada vez que cerremos un contrato con alguien que vos presentaste.
     </p>
     <div class="hero-actions">
-      <a href="#contacto" class="btn-primary">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        Quiero ser referido
-      </a>
-      <a href="#como-funciona" class="btn-secondary">Cómo funciona</a>
+      <a href="#contacto" class="btn-primary" style="padding: 13px 36px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px;">Quiero ser parte</a>
+      <a href="#como-funciona" class="btn-secondary" style="padding: 13px 36px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px;">Cómo funciona</a>
     </div>
   </div>
 </section>
@@ -703,32 +973,32 @@ footer {
 <hr class="section-divider">
 
 <!-- 2. QUÉ ES EL PROGRAMA -->
-<section id="que-es">
+<section id="que-es" style="">
   <div class="container">
     <div class="que-es-grid">
       <div class="que-es-text">
-        <p class="section-tag">Qué es el programa</p>
-        <h2>Arbusta, en pocas palabras</h2>
-        <p>Arbusta es una empresa tech que <strong>forma y emplea a jóvenes de barrios populares</strong> en roles digitales reales, trabajando para grandes corporaciones de Latinoamérica.</p>
-        <p>No es una ONG. Es un <strong>modelo de negocio sostenible con impacto sistémico</strong>: las empresas contratan servicios IT de calidad, y eso financia la inserción laboral de jóvenes que el sistema no estaba mirando.</p>
-        <p>El programa de referidos permite que personas de tu red <strong>nos abran puertas a nuevos clientes</strong> y ganen una comisión cuando se cierra el contrato.</p>
+        <p class="section-tag" style="border-color: rgb(157, 122, 253);">Qué es el programa</p>
+        <h2 style="">Arbusta, en pocas palabras</h2>
+        <p style="">Arbusta es una empresa tech que <strong style="">forma y emplea a jóvenes de barrios populares</strong> en roles digitales reales, trabajando para grandes corporaciones de Latinoamérica.</p>
+        <p style="">No es una ONG. Es un <strong style="">modelo de negocio sostenible con impacto sistémico</strong>: las empresas contratan servicios IT de calidad, y eso financia la inserción laboral de jóvenes que el sistema no estaba mirando.</p>
+        <p style="">El programa de referidos permite que personas de tu red <strong style="">nos abran puertas a nuevos clientes</strong> y ganen una comisión cuando se cierra el contrato.</p>
       </div>
-      <div class="que-es-stats">
-        <div class="stat-card">
-          <div class="stat-num">836</div>
-          <div class="stat-desc">jóvenes con su primera experiencia IT formal en Arbusta</div>
+      <div class="que-es-stats" style="">
+        <div class="stat-card" style="">
+          <div class="stat-num" style="">836</div>
+          <div class="stat-desc" style="">jóvenes con su primera experiencia IT formal en Arbusta</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-num">53%</div>
-          <div class="stat-desc">mujeres en el programa</div>
+        <div class="stat-card" style="">
+          <div class="stat-num" style="">53%</div>
+          <div class="stat-desc" style="">mujeres en el programa</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-num">73%</div>
-          <div class="stat-desc">continúan en la industria IT / Digital</div>
+        <div class="stat-card" style="">
+          <div class="stat-num" style="">73%</div>
+          <div class="stat-desc" style="">continúan en la industria IT / Digital</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-num">×4</div>
-          <div class="stat-desc">cada egresado es modelo de rol para 4 personas de su entorno</div>
+        <div class="stat-card" style="">
+          <div class="stat-num" style="">×4</div>
+          <div class="stat-desc" style="">cada egresado es modelo de rol para 4 personas de su entorno</div>
         </div>
       </div>
     </div>
@@ -741,14 +1011,14 @@ footer {
 <section id="que-vendemos">
   <div class="container">
     <p class="section-tag">Verticales de negocio</p>
-    <h2>Qué vendemos y <em>a quién</em></h2>
+    <h2>Qué vendemos y <em style="font-style: normal;">a quién</em></h2>
     <p class="lead">Ofrecemos servicios tech especializados a empresas medianas y grandes que necesitan escalar operaciones digitales con calidad y eficiencia.</p>
 
     <div class="verticales-grid">
 
       <div class="vertical-card">
         <div class="vertical-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18"/></svg>
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18"></path></svg>
         </div>
         <div class="vertical-name">Data Foundations</div>
         <div class="vertical-desc">Normalizamos, enriquecemos y anotamos datos para crear tableros, automatizar procesos e implementar soluciones de IA.</div>
@@ -760,7 +1030,7 @@ footer {
 
       <div class="vertical-card">
         <div class="vertical-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"></path></svg>
         </div>
         <div class="vertical-name">AI Testing &amp; QA</div>
         <div class="vertical-desc">Auditamos modelos de IA y software para detectar errores, mejorar el diseño y optimizar la performance de los sistemas.</div>
@@ -772,7 +1042,7 @@ footer {
 
       <div class="vertical-card">
         <div class="vertical-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
         </div>
         <div class="vertical-name">Process Automations</div>
         <div class="vertical-desc">Diseñamos automatizaciones para reducir tareas manuales, acelerar procesos y mejorar la eficiencia operativa.</div>
@@ -784,7 +1054,7 @@ footer {
 
       <div class="vertical-card">
         <div class="vertical-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg>
         </div>
         <div class="vertical-name">Digital Operations</div>
         <div class="vertical-desc">Armamos equipos especializados para operar mesas de ayuda, moderación, onboarding y otros procesos con soporte tecnológico.</div>
@@ -811,36 +1081,36 @@ footer {
 <hr class="section-divider">
 
 <!-- 4. QUÉ IMPACTO + KIT -->
-<section id="impacto">
+<section id="impacto" style="">
   <div class="container">
-    <p class="section-tag">Nuestro pitch</p>
-    <h2>Qué impacto <em>estás generando</em></h2>
+    <p class="section-tag" style="border-color: rgb(157, 122, 253);">Nuestro pitch</p>
+    <h2 style="">Qué impacto <em style="font-style: normal;">estás generando</em></h2>
 
     <div class="impacto-intro">
       <div>
-        <p class="lead" style="margin-bottom:0">Cuando referís a Arbusta, no solo generás una comisión. Generás una oportunidad laboral real para un joven que el sistema no estaba mirando.</p>
+        <p class="lead" style="margin-bottom: 0px;">Cuando referís a Arbusta, no solo generás una comisión. Generás una oportunidad laboral real para un joven que el sistema no estaba mirando.</p>
       </div>
       <div>
-        <div class="hook-card">
+        <div class="hook-card" style="">
           <div class="hook-label">✦ abrí con esto</div>
-          <p class="hook-quote">"¿Qué pasaría si el próximo gran talento tech de tu empresa viniera de un lugar donde nadie estaba mirando?"</p>
-          <p class="hook-sub">Esa es la apuesta de Arbusta. Y ya lo están demostrando con datos.</p>
+          <p class="hook-quote" style="font-style: normal;">"¿Qué pasaría si el próximo gran talento tech de tu empresa viniera de un lugar donde nadie estaba mirando?"</p>
+          <p class="hook-sub" style="">Esa es la apuesta de Arbusta. Y ya lo están demostrando con datos.</p>
         </div>
       </div>
     </div>
 
-    <div class="impacto-stats-row">
-      <div class="stat-card">
-        <div class="stat-num">43%</div>
-        <div class="stat-desc">de la juventud mundial está desempleada o vive en pobreza laboral</div>
+    <div class="impacto-stats-row" style="">
+      <div class="stat-card" style="">
+        <div class="stat-num" style="">43%</div>
+        <div class="stat-desc" style="">de la juventud mundial está desempleada o vive en pobreza laboral</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">8/10</div>
-        <div class="stat-desc">jóvenes en LATAM sin empleo formal, mayor incidencia en mujeres</div>
+      <div class="stat-card" style="">
+        <div class="stat-num" style="">8/10</div>
+        <div class="stat-desc" style="">jóvenes en LATAM sin empleo formal, mayor incidencia en mujeres</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">20M</div>
-        <div class="stat-desc">jóvenes en Argentina no estudian ni trabajan (2023)</div>
+      <div class="stat-card" style="">
+        <div class="stat-num" style="">20M</div>
+        <div class="stat-desc" style="">jóvenes en Argentina no estudian ni trabajan (2023)</div>
       </div>
     </div>
 
@@ -849,9 +1119,9 @@ footer {
       <div class="kit-inner">
         <div class="kit-header">
           <div>
-            <p class="section-tag" style="margin-bottom:12px">Recurso descargable</p>
-            <h3 class="kit-title">Tu speech de Arbusta,<br><span>listo para compartir.</span></h3>
-            <p class="kit-sub">Armamos un kit con todo el contenido que necesitás: speech de apertura, datos de contexto, cómo responder objeciones y plantillas de cierre.</p>
+            <p class="section-tag" style="margin-bottom: 12px; border-color: rgb(157, 122, 253);">Recurso descargable</p>
+            <h3 class="kit-title" style="">Tu pitch de Arbusta,<br><span>listo para compartir.</span></h3>
+            <p class="kit-sub" style="">Armamos un kit con todo el contenido que necesitás: pitch de apertura, datos de contexto, cómo responder objeciones y plantillas de cierre.</p>
           </div>
           <div class="kit-preview">
             <div class="kit-preview-bar">
@@ -876,7 +1146,7 @@ footer {
           <div class="kit-chip">
             <span class="kit-chip-icon">💬</span>
             <div>
-              <div class="kit-chip-label">Speech listo</div>
+              <div class="kit-chip-label">Pitch listo</div>
               <div class="kit-chip-text">Versión de 30 seg y 60 seg para cada contexto</div>
             </div>
           </div>
@@ -897,15 +1167,24 @@ footer {
         </div>
 
         <div class="kit-actions">
-          <a href="Arbusta_Kit_Referidos.pdf" download class="btn-primary">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <a href="Arbusta_Kit_Referidos.pdf" download="" class="btn-primary" style="padding: 13px 36px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px;">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             Descargar el kit gratis
           </a>
           <span class="kit-pill">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
             PDF · 7 páginas
           </span>
-        </div>
+        
+  <a href="Arbusta_Business_Cases.pdf" class="btn-primary" id="business-cases-btn" target="_blank" style="padding: 13px 36px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px;">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+    Conocé nuestros business cases
+  </a>
+  <span class="kit-pill">
+    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+    PDF
+  </span>
+</div>
       </div>
     </div>
 
@@ -915,25 +1194,25 @@ footer {
 <hr class="section-divider">
 
 <!-- 5. PERFIL DE BP -->
-<section id="perfil">
+<section id="perfil" style="">
   <div class="container">
-    <p class="section-tag">Perfil de Business Partner</p>
-    <h2>¿Sos el <em>perfil ideal</em>?</h2>
-    <p class="lead">Buscamos personas con red y criterio para identificar empresas que necesitan lo que Arbusta ofrece.</p>
+    <p class="section-tag" style="border-color: rgb(157, 122, 253);">Perfil de Business Partner</p>
+    <h2 style="">¿Sos el <em style="font-style: normal;">perfil ideal</em>?</h2>
+    <p class="lead" style="">Buscamos personas con red y criterio para identificar empresas que necesitan lo que Arbusta ofrece.</p>
 
     <div class="perfil-grid">
       <div>
         <ul class="perfil-list">
-          <li>Tenés contactos en empresas medianas o grandes, en áreas de tecnología, operaciones o compras</li>
-          <li>Entendés qué es el outsourcing de servicios IT o BPO</li>
-          <li>Podés hacer una intro cálida, no una venta fría</li>
-          <li>Te interesa ser parte de algo con propósito, además de ganar una comisión</li>
-          <li>Estás activo en tu industria: eventos, LinkedIn, grupos profesionales</li>
-          <li>Operás en Argentina o Colombia (prioritariamente)</li>
+          <li style="">Tenés contactos en empresas medianas o grandes, en áreas de tecnología, operaciones o compras</li>
+          <li style="">Entendés qué es el outsourcing de servicios IT o BPO</li>
+          <li style="">Podés hacer una intro cálida, no una venta fría</li>
+          <li style="">Te interesa ser parte de algo con propósito, además de ganar una comisión</li>
+          <li style="">Estás activo en tu industria: eventos, LinkedIn, grupos profesionales</li>
+          <li style="">Operás en Argentina o Colombia (prioritariamente)</li>
         </ul>
       </div>
       <div class="perfil-potencial">
-        <h3>Lo que necesitás para ser efectivo</h3>
+        <h3 style="">Lo que necesitás para ser efectivo</h3>
         <div class="tags-cloud">
           <span class="tag">Red de contactos B2B</span>
           <span class="tag">Comunicación clara</span>
@@ -954,7 +1233,7 @@ footer {
 <section id="como-funciona">
   <div class="container">
     <p class="section-tag">Proceso</p>
-    <h2>Cómo <em>funciona</em></h2>
+    <h2>Cómo <em style="font-style: normal;">funciona</em></h2>
     <p class="lead">Simple, transparente y sin burocracia.</p>
 
     <div class="steps-timeline">
@@ -1000,28 +1279,41 @@ footer {
 <hr class="section-divider">
 
 <!-- 7. COMPENSACIÓN -->
-<section id="compensacion">
+<section id="compensacion" style="">
   <div class="container">
-    <p class="section-tag">Beneficios</p>
-    <h2><em>Compensación</em> y beneficios</h2>
-    <p class="lead">Ganás cuando Arbusta gana. Un modelo simple, alineado y sin techo.</p>
+    <div class="comp-layout">
 
-    <div class="comp-grid">
-      <div class="comp-card">
-        <div class="comp-icon">💰</div>
-        <div class="comp-title">Comisión por cierre</div>
-        <div class="comp-desc">Recibís un porcentaje del contrato firmado. El monto exacto se acuerda al inicio, según el tipo y tamaño del cliente referido.</div>
+      <div class="comp-left">
+        <p class="section-tag" style="">Esquema de compensación</p>
+        <h2 style="font-size: clamp(32px, 4vw, 48px); font-weight: 800; line-height: 1.1; margin-bottom: 24px;">Transparente<br>desde el día uno</h2>
+        <p class="lead" style="max-width: 360px;">Sin sorpresas, sin letra chica. El reconocimiento es proporcional al rol que tomás en cada oportunidad.</p>
       </div>
-      <div class="comp-card">
-        <div class="comp-icon">🔁</div>
-        <div class="comp-title">Sin límite de referencias</div>
-        <div class="comp-desc">Podés referir tantos clientes como quieras. Cada intro exitosa genera una nueva comisión, sin cap ni vencimiento.</div>
+
+      <div class="comp-right">
+        <ul class="comp-bullets">
+          <li style="">
+            <span class="comp-bullet-dot"></span>
+            <span><strong style="">4%</strong> por una introducción que se convierte en venta. El equipo comercial de Arbusta lleva adelante el proceso.</span>
+          </li>
+          <li style="">
+            <span class="comp-bullet-dot"></span>
+            <span><strong style="">6%</strong> por una introducción y acompañamiento durante todo el proceso de venta: reuniones con el cliente, seguimiento y firma del contrato.</span>
+          </li>
+          <li style="">
+            <span class="comp-bullet-dot"></span>
+            <span><strong style="">Sin mínimo de monto de proyecto.</strong> Evaluamos cada oportunidad y te presentamos los escenarios que hacen sentido antes de avanzar.</span>
+          </li>
+          <li style="">
+            <span class="comp-bullet-dot"></span>
+            <span>Si el cliente referido genera <strong style="">nuevos contratos durante el primer año calendario</strong>, también comisionás sobre esos deals.</span>
+          </li>
+          <li style="">
+            <span class="comp-bullet-dot"></span>
+            <span>Pago <strong style="">acordado al inicio</strong>, sobre lo efectivamente cobrado por Arbusta.</span>
+          </li>
+        </ul>
       </div>
-      <div class="comp-card">
-        <div class="comp-icon">🤝</div>
-        <div class="comp-title">Acompañamiento real</div>
-        <div class="comp-desc">Tenés acceso a materiales, soporte del equipo comercial y visibilidad del estado de cada referido que hacés.</div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -1032,7 +1324,7 @@ footer {
 <section id="contacto">
   <div class="container">
     <p class="section-tag">Contacto</p>
-    <h2>¿Querés <em>sumarte</em>?</h2>
+    <h2>¿Querés <em style="font-style: normal;">sumarte</em>?</h2>
     <p class="lead">Escribile directamente a nuestros referentes según tu país. Te respondemos en menos de 48 horas.</p>
 
     <div class="contacto-grid">
@@ -1040,7 +1332,7 @@ footer {
         <div class="contacto-country">🇦🇷 Argentina</div>
         <div class="contacto-name">Tobías De Marcos</div>
         <a href="mailto:Tobias.demarcos@arbusta.net" class="contacto-email">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           Tobias.demarcos@arbusta.net
         </a>
       </div>
@@ -1048,7 +1340,7 @@ footer {
         <div class="contacto-country">🇨🇴 Colombia</div>
         <div class="contacto-name">Stephany Villa</div>
         <a href="mailto:Stephany.villa@arbusta.net" class="contacto-email">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           Stephany.villa@arbusta.net
         </a>
       </div>
@@ -1058,9 +1350,16 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <img src="data:image/png;base64,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" alt="Arbusta"></div>
-  <span class="footer-text">© 2025 Arbusta · Programa de Referidos</span>
+  <img src="https://arbusta.net/assets/logo-arbusta.svg" alt="Arbusta" style="height: 44px; width: auto;">
+  <span class="footer-text">© 2026 Arbusta · Programa de Referidos</span>
   <a href="https://arbusta.net" class="footer-link" target="_blank">arbusta.net ↗</a>
 </footer>
-</body>
-</html>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;6935fe2838834eb4bcbc5a5feb8a80e3&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+<div id="claude-agent-glow-border" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483646; opacity: 1; transition: opacity 0.3s ease-in-out;"><div id="claude-agent-glow-border-inner" style="position: absolute; inset: 0px; will-change: opacity; box-shadow: rgba(217, 119, 87, 0.7) 0px 0px 15px inset, rgba(217, 119, 87, 0.5) 0px 0px 25px inset, rgba(217, 119, 87, 0.2) 0px 0px 35px inset;"></div></div><div id="claude-agent-stop-container" style="position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); justify-content: center; align-items: center; pointer-events: none; z-index: 2147483647;"><button id="claude-agent-stop-button" style="position: relative; transform: translateY(0px); padding: 12px 16px; background: rgb(250, 249, 245); color: rgb(20, 20, 19); border: 0.5px solid rgba(31, 30, 29, 0.4); border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: rgba(217, 119, 87, 0.24) 0px 40px 80px, rgba(217, 119, 87, 0.24) 0px 4px 14px; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 1; user-select: none; pointer-events: auto; white-space: nowrap; margin: 0px auto;">
+      <svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" style="margin-right: 12px; vertical-align: middle;">
+        <path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm40-112v56a12,12,0,0,1-12,12H100a12,12,0,0,1-12-12V100a12,12,0,0,1,12-12h56A12,12,0,0,1,168,100Z"></path>
+      </svg>
+      <span style="vertical-align: middle;">Stop Claude</span>
+    </button></div><div id="claude-phantom-cursor" aria-hidden="true" style="position: fixed; top: 0px; left: 0px; pointer-events: none; z-index: 2147483646; transform: translate3d(575px, 400px, 0px); transition: transform 180ms cubic-bezier(0.2, 0, 0, 1); will-change: transform;"><svg id="claude-phantom-cursor-plain" width="20" height="26" viewBox="0 0 20 26" style="position: absolute; top: 0px; left: 0px; overflow: visible;"><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="white"></path><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" fill="#111"></path></svg><svg id="claude-phantom-cursor-styled" width="20" height="26" viewBox="0 0 20 26" style="position: absolute; top: 0px; left: 0px; overflow: visible; filter: drop-shadow(rgba(217, 119, 87, 0.9) 0px 0px 4px) drop-shadow(rgba(217, 119, 87, 0.45) 0px 0px 10px);"><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" stroke="#D97757" stroke-width="3" stroke-linejoin="round" fill="#D97757"></path><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" fill="#FAF9F5"></path></svg></div></body></html>
