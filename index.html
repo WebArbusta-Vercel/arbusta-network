@@ -1,952 +1,34 @@
 <!DOCTYPE html>
-<html lang="es"><head>
+<html lang="es">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Programa de Referidos · Arbusta</title>
+<meta name="description" content="Referí clientes a Arbusta y generá una comisión. Soluciones Human+Tech para escalar negocios basados en datos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
-<style>
-:root {
-  --aubergine: #2a103e;
-  --purple:    #4729b0;
-  --grape:     #7229bc;
-  --lilac:     #9d7afd;
-  --pink:      #f9daea;
-  --gray:      #f2f0f2;
-  --graphite:  #2c2927;
-  --green:     #7fdb7b;
-  --white:     #ffffff;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Figtree', sans-serif;
-  background: var(--aubergine);
-  color: var(--white);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* ── NAV ─────────────────────────────────────────────────────────── */
-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(42,16,62,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(157,122,253,0.15);
-  padding: 0 max(5vw, 24px);
-  display: flex; align-items: center; justify-content: space-between;
-  height: 64px;
-}
-
-.nav-logo { height: 32px; }
-
-.nav-links {
-  display: flex; gap: 28px; list-style: none;
-}
-
-.nav-links a {
-  font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
-  color: rgba(249,218,234,0.7); text-decoration: none;
-  transition: color 0.18s;
-}
-.nav-links a:hover { color: var(--lilac); }
-
-/* ── LAYOUT ──────────────────────────────────────────────────────── */
-.container {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 max(5vw, 24px);
-}
-
-section { padding: 96px 0; }
-
-.section-tag {
-  font-family: 'Courier New', monospace;
-  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--lilac);
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-bottom: 18px;
-}
-.section-tag::before {
-  content: ''; display: inline-block;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--lilac);
-}
-
-h2 {
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 800; line-height: 1.15;
-  letter-spacing: -0.5px;
-  margin-bottom: 16px;
-}
-
-h2 em { font-style: normal; color: var(--lilac); }
-
-.lead {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(17px, 2.2vw, 21px);
-  color: var(--pink); opacity: 0.88;
-  line-height: 1.6;
-  max-width: 640px;
-  margin-bottom: 48px;
-}
-
-.section-divider {
-  border: none;
-  border-top: 1px solid rgba(157,122,253,0.18);
-  margin: 0;
-}
-
-/* ── HERO ────────────────────────────────────────────────────────── */
-#hero {
-  padding: 120px max(5vw,24px) 96px;
-  position: relative; overflow: hidden;
-}
-
-.hero-blob {
-  position: absolute; border-radius: 50%;
-  pointer-events: none;
-}
-.hero-blob-1 {
-  width: 520px; height: 520px;
-  top: -180px; right: -140px;
-  background: radial-gradient(circle, rgba(114,41,188,0.45) 0%, transparent 70%);
-}
-.hero-blob-2 {
-  width: 360px; height: 360px;
-  bottom: -100px; left: -80px;
-  background: radial-gradient(circle, rgba(71,41,176,0.3) 0%, transparent 70%);
-}
-
-.hero-inner {
-  max-width: 1080px; margin: 0 auto;
-  position: relative; z-index: 1;
-}
-
-.hero-kicker {
-  font-family: 'Courier New', monospace;
-  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--lilac);
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-bottom: 24px;
-}
-.hero-kicker::before {
-  content: ''; display: inline-block;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--green); box-shadow: 0 0 8px var(--green);
-}
-
-.hero-title {
-  font-size: clamp(38px, 6vw, 68px);
-  font-weight: 800; line-height: 1.08; letter-spacing: -1.5px;
-  max-width: 820px; margin-bottom: 24px;
-}
-.hero-title span { color: var(--lilac); }
-
-.hero-sub {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(18px, 2.4vw, 24px);
-  color: var(--pink); opacity: 0.85;
-  max-width: 580px; margin-bottom: 48px; line-height: 1.55;
-}
-
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--purple); color: var(--white);
-  font-family: 'Figtree', sans-serif;
-  font-size: 15px; font-weight: 700;
-  padding: 15px 30px; border-radius: 8px;
-  text-decoration: none; border: none; cursor: pointer;
-  transition: background 0.18s, transform 0.15s;
-}
-.btn-primary:hover { background: #5a35c8; transform: translateY(-2px); }
-
-.btn-secondary {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: transparent;
-  border: 1px solid rgba(157,122,253,0.4);
-  color: var(--lilac);
-  font-family: 'Figtree', sans-serif;
-  font-size: 14px; font-weight: 600;
-  padding: 14px 24px; border-radius: 8px;
-  text-decoration: none; cursor: pointer;
-  transition: background 0.18s, border-color 0.18s;
-}
-.btn-secondary:hover {
-  background: rgba(157,122,253,0.1);
-  border-color: var(--lilac);
-}
-
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-
-/* ── QUÉ ES ──────────────────────────────────────────────────────── */
-#que-es { background: rgba(0,0,0,0.15); }
-
-.que-es-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px; align-items: center;
-}
-
-.que-es-text p {
-  font-size: 16px; color: rgba(249,218,234,0.82);
-  line-height: 1.75; margin-bottom: 16px;
-}
-.que-es-text p:last-child { margin-bottom: 0; }
-.que-es-text strong { color: var(--white); }
-
-.que-es-stats {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-}
-
-.stat-card {
-  background: rgba(71,41,176,0.2);
-  border: 1px solid rgba(157,122,253,0.25);
-  border-radius: 12px;
-  padding: 24px 20px;
-}
-
-.stat-num {
-  font-size: 38px; font-weight: 800;
-  color: var(--lilac); line-height: 1;
-  margin-bottom: 6px;
-}
-
-.stat-desc {
-  font-size: 13px; color: rgba(249,218,234,0.65);
-  line-height: 1.4;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 0.02em;
-}
-
-/* ── QUÉ VENDEMOS ────────────────────────────────────────────────── */
-#que-vendemos {}
-
-.verticales-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-top: 48px;
-}
-
-.vertical-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(157,122,253,0.2);
-  border-top: 3px solid var(--grape);
-  border-radius: 0 0 12px 12px;
-  padding: 28px 28px 24px;
-  transition: border-color 0.2s, background 0.2s;
-}
-.vertical-card:hover {
-  background: rgba(114,41,188,0.1);
-  border-color: rgba(157,122,253,0.45);
-  border-top-color: var(--lilac);
-}
-
-.vertical-icon {
-  width: 40px; height: 40px;
-  background: rgba(71,41,176,0.3);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 16px;
-  font-size: 20px; color: var(--lilac);
-}
-
-.vertical-name {
-  font-size: 18px; font-weight: 800;
-  color: var(--white); margin-bottom: 10px;
-  letter-spacing: -0.2px;
-}
-
-.vertical-desc {
-  font-size: 14px; color: rgba(249,218,234,0.72);
-  line-height: 1.65; margin-bottom: 18px;
-}
-
-.vertical-services {
-  font-family: 'Courier New', monospace;
-  font-size: 11px; letter-spacing: 0.04em;
-  color: rgba(157,122,253,0.75);
-  line-height: 1.6;
-}
-
-.vertical-services strong {
-  color: var(--lilac);
-  display: block; margin-bottom: 4px;
-  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-}
-
-.clientes-blurb {
-  margin-top: 48px;
-  background: rgba(71,41,176,0.15);
-  border: 1px solid rgba(157,122,253,0.2);
-  border-radius: 12px;
-  padding: 28px 32px;
-  display: flex; gap: 20px; align-items: flex-start;
-}
-
-.clientes-blurb-icon {
-  font-size: 28px; color: var(--lilac); flex-shrink: 0; margin-top: 2px;
-}
-
-.clientes-blurb h3 {
-  font-size: 16px; font-weight: 700; margin-bottom: 6px;
-}
-.clientes-blurb p {
-  font-size: 14px; color: rgba(249,218,234,0.75); line-height: 1.65;
-}
-
-/* ── IMPACTO / PITCH ─────────────────────────────────────────────── */
-#impacto {
-  background: rgba(0,0,0,0.15);
-}
-
-.impacto-intro {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 48px; align-items: start;
-  margin-bottom: 56px;
-}
-
-.impacto-stats-row {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
-  margin-bottom: 40px;
-}
-
-.speech-block {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(157,122,253,0.2);
-  border-left: 3px solid var(--grape);
-  border-radius: 0 10px 10px 0;
-  padding: 20px 24px;
-  margin-bottom: 16px;
-}
-
-.speech-label {
-  font-family: 'Courier New', monospace;
-  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--lilac); margin-bottom: 10px;
-}
-
-.speech-text {
-  font-size: 14.5px; color: rgba(249,218,234,0.88);
-  line-height: 1.75;
-}
-.speech-text strong { color: var(--white); }
-
-.hook-card {
-  background: rgba(58,18,96,0.7);
-  border: 1px solid rgba(157,122,253,0.4);
-  border-radius: 12px;
-  padding: 28px 28px 24px;
-  margin-bottom: 32px;
-}
-
-.hook-label {
-  font-family: 'Courier New', monospace;
-  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--green); margin-bottom: 12px;
-}
-
-.hook-quote {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(17px, 2vw, 20px);
-  color: var(--white); line-height: 1.5; margin-bottom: 10px;
-}
-
-.hook-sub {
-  font-size: 14px; color: rgba(249,218,234,0.7); line-height: 1.6;
-}
-
-/* ── KIT DESCARGABLE ──────────────────────────────────────────────── */
-.kit-section {
-  background: rgba(42,16,62,0.6);
-  border: 1px solid rgba(157,122,253,0.25);
-  border-radius: 16px;
-  padding: 48px;
-  margin-top: 48px;
-  position: relative; overflow: hidden;
-}
-
-.kit-section::before {
-  content: '';
-  position: absolute; top: -60px; right: -60px;
-  width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(114,41,188,0.35) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.kit-inner { position: relative; z-index: 1; }
-
-.kit-header {
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 32px; align-items: start;
-  margin-bottom: 32px;
-}
-
-.kit-title {
-  font-size: clamp(22px, 3vw, 30px);
-  font-weight: 800; line-height: 1.2; margin-bottom: 10px;
-}
-.kit-title span { color: var(--lilac); }
-
-.kit-sub {
-  font-size: 14px; color: rgba(249,218,234,0.72); line-height: 1.65;
-}
-
-.kit-preview {
-  background: rgba(0,0,0,0.4);
-  border: 1px solid rgba(157,122,253,0.2);
-  border-radius: 10px; overflow: hidden;
-  width: 220px; flex-shrink: 0;
-}
-
-.kit-preview-bar {
-  background: rgba(71,41,176,0.35);
-  padding: 9px 14px;
-  display: flex; align-items: center; gap: 8px;
-  border-bottom: 1px solid rgba(157,122,253,0.15);
-}
-
-.kit-dots { display: flex; gap: 5px; }
-.kit-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.15); }
-
-.kit-preview-filename {
-  font-family: 'Courier New', monospace;
-  font-size: 9.5px; color: rgba(157,122,253,0.65);
-  letter-spacing: 0.05em;
-}
-
-.kit-preview-body { padding: 14px 16px 12px; }
-
-.kit-preview-name {
-  font-size: 12px; font-weight: 700; color: var(--white); margin-bottom: 6px;
-}
-
-.kit-preview-pages {
-  display: flex; flex-wrap: wrap; gap: 4px;
-}
-
-.kit-page-tag {
-  background: rgba(71,41,176,0.25);
-  border: 1px solid rgba(157,122,253,0.18);
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  font-size: 9px; color: rgba(157,122,253,0.65);
-  padding: 2px 7px; letter-spacing: 0.05em;
-}
-
-.kit-chips {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
-  margin-bottom: 28px;
-}
-
-.kit-chip {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(157,122,253,0.18);
-  border-radius: 8px; padding: 14px 16px;
-  display: flex; gap: 10px; align-items: flex-start;
-}
-
-.kit-chip-icon { font-size: 18px; color: var(--lilac); flex-shrink: 0; margin-top: 1px; }
-
-.kit-chip-label {
-  font-size: 11px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.08em; color: var(--white); margin-bottom: 3px;
-}
-
-.kit-chip-text {
-  font-family: 'Courier New', monospace;
-  font-size: 11px; color: rgba(249,218,234,0.65); line-height: 1.45;
-}
-
-.kit-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-
-.kit-pill {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(157,122,253,0.1);
-  border: 1px solid rgba(157,122,253,0.28);
-  color: var(--lilac);
-  font-family: 'Courier New', monospace;
-  font-size: 11px; letter-spacing: 0.05em;
-  padding: 6px 14px; border-radius: 100px;
-}
-
-/* ── PERFIL BP ────────────────────────────────────────────────────── */
-#perfil {}
-
-.perfil-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-  align-items: start; margin-top: 48px;
-}
-
-.perfil-list { list-style: none; }
-.perfil-list li {
-  display: flex; align-items: flex-start; gap: 14px;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(157,122,253,0.12);
-  font-size: 15px; color: rgba(249,218,234,0.85); line-height: 1.55;
-}
-.perfil-list li:last-child { border-bottom: none; }
-.perfil-list li::before {
-  content: '';
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--lilac); flex-shrink: 0; margin-top: 9px;
-}
-
-.perfil-potencial h3 {
-  font-size: 16px; font-weight: 700; margin-bottom: 20px; color: var(--white);
-}
-
-.tags-cloud {
-  display: flex; flex-wrap: wrap; gap: 10px;
-}
-
-.tag {
-  background: rgba(114,41,188,0.2);
-  border: 1px solid rgba(157,122,253,0.3);
-  color: var(--lilac);
-  font-size: 13px; font-weight: 500;
-  padding: 7px 16px; border-radius: 100px;
-}
-
-/* ── CÓMO FUNCIONA ────────────────────────────────────────────────── */
-#como-funciona { background: rgba(0,0,0,0.15); }
-
-.steps-timeline {
-  display: flex; flex-direction: column; gap: 0;
-  margin-top: 48px;
-  position: relative;
-}
-
-.steps-timeline::before {
-  content: '';
-  position: absolute; left: 28px; top: 28px; bottom: 28px;
-  width: 2px; background: linear-gradient(to bottom, var(--grape), transparent);
-}
-
-.step {
-  display: flex; gap: 28px; align-items: flex-start;
-  padding: 0 0 36px;
-}
-.step:last-child { padding-bottom: 0; }
-
-.step-num {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: var(--grape);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; font-weight: 800; color: var(--white);
-  flex-shrink: 0; position: relative; z-index: 1;
-}
-
-.step-content { padding-top: 12px; }
-
-.step-title {
-  font-size: 17px; font-weight: 700;
-  color: var(--white); margin-bottom: 6px;
-}
-
-.step-desc {
-  font-size: 14px; color: rgba(249,218,234,0.72); line-height: 1.65;
-}
-
-/* ── COMPENSACIÓN ─────────────────────────────────────────────────── */
-#compensacion {}
-
-.comp-grid {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
-  margin-top: 48px;
-}
-
-.comp-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(157,122,253,0.2);
-  border-radius: 12px; padding: 28px 24px;
-  text-align: center;
-}
-
-.comp-icon { font-size: 32px; color: var(--lilac); margin-bottom: 14px; }
-.comp-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-.comp-desc { font-size: 13px; color: rgba(249,218,234,0.65); line-height: 1.6; }
-
-/* ── CONTACTO ─────────────────────────────────────────────────────── */
-#contacto { background: rgba(0,0,0,0.15); }
-
-.contacto-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-  margin-top: 48px;
-}
-
-.contacto-card {
-  background: rgba(71,41,176,0.15);
-  border: 1px solid rgba(157,122,253,0.25);
-  border-radius: 14px; padding: 32px 28px;
-}
-
-.contacto-country {
-  font-family: 'Courier New', monospace;
-  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--green); margin-bottom: 14px;
-  display: flex; align-items: center; gap: 7px;
-}
-.contacto-country::before {
-  content: ''; width: 5px; height: 5px; border-radius: 50%;
-  background: var(--green); flex-shrink: 0;
-}
-
-.contacto-name {
-  font-size: 18px; font-weight: 800; color: var(--white); margin-bottom: 10px;
-}
-
-.contacto-email {
-  display: inline-flex; align-items: center; gap: 8px;
-  color: var(--lilac); font-size: 14px; font-weight: 500;
-  text-decoration: none; transition: opacity 0.15s;
-}
-.contacto-email:hover { opacity: 0.75; }
-
-/* ── FOOTER ──────────────────────────────────────────────────────── */
-footer {
-  border-top: 1px solid rgba(157,122,253,0.15);
-  padding: 40px max(5vw,24px);
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 20px; flex-wrap: wrap;
-}
-
-.footer-logo { height: 28px; }
-.footer-text {
-  font-family: 'Courier New', monospace;
-  font-size: 11px; color: rgba(157,122,253,0.5); letter-spacing: 0.06em;
-}
-.footer-link {
-  font-family: 'Courier New', monospace;
-  font-size: 11px; color: rgba(157,122,253,0.5); letter-spacing: 0.06em;
-  text-decoration: none;
-}
-.footer-link:hover { color: var(--lilac); }
-
-/* ── RESPONSIVE ──────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .que-es-grid,
-  .impacto-intro,
-  .perfil-grid,
-  .contacto-grid { grid-template-columns: 1fr; }
-  .verticales-grid,
-  .impacto-stats-row,
-  .comp-grid { grid-template-columns: 1fr 1fr; }
-  .kit-header { grid-template-columns: 1fr; }
-  .kit-preview { width: 100%; }
-  .kit-chips { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-  section { padding: 64px 0; }
-  .kit-section { padding: 32px 24px; }
-}
-
-@media (max-width: 480px) {
-  .verticales-grid,
-  .impacto-stats-row,
-  .comp-grid,
-  .kit-chips { grid-template-columns: 1fr; }
-}
-
-/* ── SVG LOGO BASE64 INLINE ────────────────────────────────────────── */
-.logo-full { height: 36px; width: auto; }
-.logo-footer { height: 28px; width: auto; }
-</style>
-<script src="chrome-extension://hmdmhilocobgohohpdpolmibjklfgkbi/pageScript.js"></script><link rel="icon" type="image/svg+xml" href="https://arbusta.net/assets/favicon.svg"><style>
-/* ── AJUSTES UX ────────────────────────────────────────────────── */
-.nav-logo { height: 46px !important; }
-.footer-logo, footer img { height: 44px !important; width: auto !important; }
-
-.hero-sub, p.lead, .kit-sub {
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
-  font-style: normal !important;
-  line-height: 1.7 !important;
-}
-.hero-sub { font-size: 1.2rem !important; max-width: 580px; }
-p.lead, .kit-sub { font-size: 1.1rem !important; }
-
-.kit-actions { flex-wrap: wrap; gap: 12px; }
-</style><style id="claude-agent-animation-styles">
-      @keyframes claude-pulse {
-        0%, 100% { opacity: 0.6; }
-        50% { opacity: 1; }
-      }
-      #claude-agent-glow-border-inner {
-        animation: claude-pulse 2s ease-in-out infinite;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        #claude-agent-glow-border-inner {
-          animation: none;
-        }
-      }
-    </style><style>
-.comp-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.comp-tiers {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 28px;
-}
-
-.comp-tier {
-  background: rgba(71,41,176,0.18);
-  border: 1px solid rgba(157,122,253,0.25);
-  border-radius: 14px;
-  padding: 24px 22px;
-  position: relative;
-}
-
-.comp-tier--plus {
-  border-color: rgba(157,122,253,0.55);
-  background: rgba(71,41,176,0.28);
-}
-
-.comp-tier-badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--aubergine);
-  background: var(--lilac);
-  border-radius: 20px;
-  padding: 3px 10px;
-  margin-bottom: 12px;
-}
-
-.comp-tier-pct {
-  font-size: 52px;
-  font-weight: 800;
-  color: var(--lilac);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.comp-tier-label {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 10px;
-}
-
-.comp-tier-desc {
-  font-size: 13px;
-  color: rgba(249,218,234,0.65);
-  line-height: 1.55;
-}
-
-.comp-bullets {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.comp-bullets li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 14px;
-  color: rgba(249,218,234,0.82);
-  line-height: 1.6;
-}
-
-.comp-bullet-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--lilac);
-  flex-shrink: 0;
-  margin-top: 7px;
-}
-
-.comp-bullets li strong {
-  color: var(--white);
-}
-</style><style id="comp-styles">
-.comp-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.comp-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 28px;
-}
-
-.comp-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  background: rgba(71,41,176,0.15);
-  border: 1px solid rgba(157,122,253,0.2);
-  border-radius: 14px;
-  padding: 24px 26px;
-  transition: background 0.2s;
-}
-
-.comp-item--highlight {
-  border-color: rgba(157,122,253,0.55);
-  background: rgba(71,41,176,0.28);
-}
-
-.comp-item-pct {
-  font-size: 48px;
-  font-weight: 800;
-  color: var(--lilac);
-  line-height: 1;
-  flex-shrink: 0;
-  min-width: 80px;
-}
-
-.comp-item-body {
-  padding-top: 4px;
-}
-
-.comp-item-badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--aubergine);
-  background: var(--lilac);
-  border-radius: 20px;
-  padding: 3px 10px;
-  margin-bottom: 8px;
-}
-
-.comp-item-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 6px;
-  line-height: 1.4;
-}
-
-.comp-item-desc {
-  font-size: 13px;
-  color: rgba(249,218,234,0.65);
-  line-height: 1.55;
-}
-
-.comp-bullets {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding-top: 4px;
-}
-
-.comp-bullets li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 14px;
-  color: rgba(249,218,234,0.82);
-  line-height: 1.6;
-}
-
-.comp-bullet-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--lilac);
-  flex-shrink: 0;
-  margin-top: 7px;
-}
-
-.comp-bullets li strong {
-  color: var(--white);
-}
-</style><style id="arbusta-redesign-v2">
-  /* ===== NAV: Add '> ' prefix to links like arbusta.net ===== */
-  nav a::before {
-    content: '> ';
-    color: #9d7afd;
-    font-weight: 600;
-  }
-
-  /* ===== SECTION TAGS: Remove dot, use clean label ===== */
-  .section-tag::before, 
-  [class*="section-tag"]::before,
-  .overline::before,
-  .tag-label::before {
-    display: none !important;
-    content: none !important;
-  }
-
-  /* ===== HERO: Larger title typography ===== */
-  .hero h1, 
-  #hero h1,
-  section.hero h1 {
-    font-size: clamp(52px, 7vw, 72px) !important;
-    line-height: 1.05 !important;
-    letter-spacing: -1px !important;
-  }
-
-  /* ===== CTA BUTTONS: Adjust padding ===== */
-  .btn-primary, .btn-secondary, .btn-outline {
-    padding: 13px 36px !important;
-  }
-
-  /* ===== ALTERNATING SECTIONS: Light/dark like arbusta.net ===== */
-  /* Keep the first/hero dark, then alternate */
-  
-  /* ===== CARDS: Improve hover and borders ===== */
-  .card, .step-card, .feature-card, [class*="card"] {
-    border: 1px solid rgba(157,122,253,0.2) !important;
-    transition: border-color 0.2s ease, transform 0.2s ease !important;
-  }
-  .card:hover, .step-card:hover, .feature-card:hover, [class*="card"]:hover {
-    border-color: rgba(157,122,253,0.6) !important;
-    transform: translateY(-2px) !important;
-  }
-</style><style id="fix-section-tags">
-  .section-tag::before { content: '' !important; display: none !important; width: 0 !important; height: 0 !important; margin: 0 !important; padding: 0 !important; }
-  .section-tag { padding-left: 0 !important; display: flex !important; align-items: center !important; gap: 0 !important; }
-</style><style id="dark-card-fix">
-  /* Ensure all sections use dark purple */
-  section {
-    background: inherit;
-  }
-  /* Cards in dark sections */
-  .card, .step-card, .feature-card, [class*="card"] {
-    background: rgba(255,255,255,0.07) !important;
-    color: inherit !important;
-    box-shadow: none !important;
-  }
-</style></head>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="https://arbusta.net/assets/favicon.svg">
+</head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <img src="https://arbusta.net/assets/logo-arbusta.svg" alt="Arbusta" class="logo-full" style="height: 52px; overflow: visible; width: auto;">
-  <ul class="nav-links">
+  <a href="https://arbusta.net">
+    <img src="https://arbusta.net/assets/logo-arbusta.svg" alt="Arbusta" class="nav-logo">
+  </a>
+  <button class="nav-burger" id="navBurger" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#que-es">El programa</a></li>
     <li><a href="#que-vendemos">Qué vendemos</a></li>
     <li><a href="#impacto">Impacto</a></li>
     <li><a href="#perfil">Perfil</a></li>
     <li><a href="#como-funciona">Cómo funciona</a></li>
     <li><a href="#compensacion">Compensación</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#contacto" class="nav-cta">Contacto</a></li>
   </ul>
 </nav>
 
@@ -955,17 +37,17 @@ p.lead, .kit-sub { font-size: 1.1rem !important; }
   <div class="hero-blob hero-blob-1"></div>
   <div class="hero-blob hero-blob-2"></div>
   <div class="hero-inner">
-    <p class="hero-kicker" style="font-size: 18px; line-height: 1.6; max-width: 540px; opacity: 0.85;">Programa de referidos · Arbusta</p>
-    <h1 class="hero-title" style="font-size: clamp(52px, 7vw, 72px); line-height: 1.05; letter-spacing: -1px;">
+    <span class="hero-kicker">Programa de referidos · Arbusta</span>
+    <h1 class="hero-title">
       Referí clientes.<br>
-      <span>Generá <mark style="background: rgb(157,122,253); color: #f2f0f2; padding: 2px 8px; border-radius: 6px; font-style: normal;">impacto real</mark>.</span>
+      <span>Generá <mark>impacto real</mark>.</span>
     </h1>
     <p class="hero-sub">
       Conectá a tu red con Arbusta y ganá una comisión cada vez que cerremos un contrato con alguien que vos presentaste.
     </p>
     <div class="hero-actions">
-      <a href="#contacto" class="btn-primary" style="padding: 13px 36px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px;">Quiero ser parte</a>
-      <a href="#como-funciona" class="btn-secondary" style="padding: 13px 36px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px;">Cómo funciona</a>
+      <a href="#contacto" class="btn-primary">Quiero ser parte</a>
+      <a href="#como-funciona" class="btn-secondary">Cómo funciona</a>
     </div>
   </div>
 </section>
@@ -973,33 +55,31 @@ p.lead, .kit-sub { font-size: 1.1rem !important; }
 <hr class="section-divider">
 
 <!-- 2. QUÉ ES EL PROGRAMA -->
-<section id="que-es" style="">
-  <div class="container">
-    <div class="que-es-grid">
-      <div class="que-es-text">
-        <p class="section-tag" style="border-color: rgb(157, 122, 253);">Qué es el programa</p>
-        <h2 style="">Arbusta, en pocas palabras</h2>
-        <p style="">Arbusta es una empresa tech que <strong style="">forma y emplea a jóvenes de barrios populares</strong> en roles digitales reales, trabajando para grandes corporaciones de Latinoamérica.</p>
-        <p style="">No es una ONG. Es un <strong style="">modelo de negocio sostenible con impacto sistémico</strong>: las empresas contratan servicios IT de calidad, y eso financia la inserción laboral de jóvenes que el sistema no estaba mirando.</p>
-        <p style="">El programa de referidos permite que personas de tu red <strong style="">nos abran puertas a nuevos clientes</strong> y ganen una comisión cuando se cierra el contrato.</p>
+<section id="que-es">
+  <div class="que-es-grid fade-up">
+    <div class="que-es-text">
+      <span class="section-label">Qué es el programa</span>
+      <h2>Arbusta, en pocas palabras</h2>
+      <p>Arbusta es una empresa tech que <strong>forma y emplea a jóvenes de barrios populares</strong> en roles digitales reales, trabajando para grandes corporaciones de Latinoamérica.</p>
+      <p>No es una ONG. Es un <strong>modelo de negocio sostenible con impacto sistémico</strong>: las empresas contratan servicios IT de calidad, y eso financia la inserción laboral de jóvenes que el sistema no estaba mirando.</p>
+      <p>El programa de referidos permite que personas de tu red <strong>nos abran puertas a nuevos clientes</strong> y ganen una comisión cuando se cierra el contrato.</p>
+    </div>
+    <div class="que-es-stats">
+      <div class="stat-card">
+        <div class="stat-num">836</div>
+        <div class="stat-desc">jóvenes con su primera experiencia IT formal en Arbusta</div>
       </div>
-      <div class="que-es-stats" style="">
-        <div class="stat-card" style="">
-          <div class="stat-num" style="">836</div>
-          <div class="stat-desc" style="">jóvenes con su primera experiencia IT formal en Arbusta</div>
-        </div>
-        <div class="stat-card" style="">
-          <div class="stat-num" style="">53%</div>
-          <div class="stat-desc" style="">mujeres en el programa</div>
-        </div>
-        <div class="stat-card" style="">
-          <div class="stat-num" style="">73%</div>
-          <div class="stat-desc" style="">continúan en la industria IT / Digital</div>
-        </div>
-        <div class="stat-card" style="">
-          <div class="stat-num" style="">×4</div>
-          <div class="stat-desc" style="">cada egresado es modelo de rol para 4 personas de su entorno</div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-num">53%</div>
+        <div class="stat-desc">mujeres en el programa</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">73%</div>
+        <div class="stat-desc">continúan en la industria IT / Digital</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">×4</div>
+        <div class="stat-desc">cada egresado es modelo de rol para 4 personas de su entorno</div>
       </div>
     </div>
   </div>
@@ -1009,219 +89,207 @@ p.lead, .kit-sub { font-size: 1.1rem !important; }
 
 <!-- 3. QUÉ VENDEMOS Y A QUIÉN -->
 <section id="que-vendemos">
-  <div class="container">
-    <p class="section-tag">Verticales de negocio</p>
-    <h2>Qué vendemos y <em style="font-style: normal;">a quién</em></h2>
-    <p class="lead">Ofrecemos servicios tech especializados a empresas medianas y grandes que necesitan escalar operaciones digitales con calidad y eficiencia.</p>
+  <span class="section-label">Verticales de negocio</span>
+  <h2>Qué vendemos y <em>a quién</em></h2>
+  <p class="lead">Ofrecemos servicios tech especializados a empresas medianas y grandes que necesitan escalar operaciones digitales con calidad y eficiencia.</p>
 
-    <div class="verticales-grid">
+  <div class="verticales-grid fade-up">
 
-      <div class="vertical-card">
-        <div class="vertical-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18"></path></svg>
-        </div>
-        <div class="vertical-name">Data Foundations</div>
-        <div class="vertical-desc">Normalizamos, enriquecemos y anotamos datos para crear tableros, automatizar procesos e implementar soluciones de IA.</div>
-        <div class="vertical-services">
-          <strong>Servicios incluidos</strong>
-          Data Foundations · Market Intelligence
-        </div>
+    <div class="vertical-card">
+      <div class="vertical-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18"></path></svg>
       </div>
-
-      <div class="vertical-card">
-        <div class="vertical-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"></path></svg>
-        </div>
-        <div class="vertical-name">AI Testing &amp; QA</div>
-        <div class="vertical-desc">Auditamos modelos de IA y software para detectar errores, mejorar el diseño y optimizar la performance de los sistemas.</div>
-        <div class="vertical-services">
-          <strong>Servicios incluidos</strong>
-          AI Training · Evals &amp; Red Teaming · QA Testing
-        </div>
+      <div class="vertical-name">Data Foundations</div>
+      <div class="vertical-desc">Normalizamos, enriquecemos y anotamos datos para crear tableros, automatizar procesos e implementar soluciones de IA.</div>
+      <div class="vertical-services">
+        <strong>Servicios incluidos</strong>
+        Data Foundations · Market Intelligence
       </div>
-
-      <div class="vertical-card">
-        <div class="vertical-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-        </div>
-        <div class="vertical-name">Process Automations</div>
-        <div class="vertical-desc">Diseñamos automatizaciones para reducir tareas manuales, acelerar procesos y mejorar la eficiencia operativa.</div>
-        <div class="vertical-services">
-          <strong>Servicios incluidos</strong>
-          Process Automations
-        </div>
-      </div>
-
-      <div class="vertical-card">
-        <div class="vertical-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg>
-        </div>
-        <div class="vertical-name">Digital Operations</div>
-        <div class="vertical-desc">Armamos equipos especializados para operar mesas de ayuda, moderación, onboarding y otros procesos con soporte tecnológico.</div>
-        <div class="vertical-services">
-          <strong>Servicios incluidos</strong>
-          CX Support · BPO · Content Moderation · KYC/KYB Data Validation · Document Intelligence (OCR + IA)
-        </div>
-      </div>
-
     </div>
 
-    <div class="clientes-blurb">
-      <div class="clientes-blurb-icon">🎯</div>
-      <div>
-        <h3>¿A quién le vendemos?</h3>
-        <p>Empresas medianas y grandes en sectores como fintech, e-commerce, salud, retail y tecnología, que necesitan escalar operaciones digitales con talento de calidad. Principalmente en Argentina, Colombia y el resto de LATAM.</p>
-        <p style="margin-top:12px; font-family:'Courier New',monospace; font-size:11px; letter-spacing:0.06em; color:rgba(127,219,123,0.8); margin-bottom:6px; text-transform:uppercase;">Clientes con los que trabajamos</p>
-        <p style="font-size:13px; color:rgba(249,218,234,0.7); line-height:1.7;">Mercado Libre · Mercado Pago · Despegar · Omint · Grupo Nutresa · Sura · Kavak · Pedidos Ya · Disney · DLocal · TGN</p>
+    <div class="vertical-card">
+      <div class="vertical-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"></path></svg>
       </div>
+      <div class="vertical-name">AI Testing &amp; QA</div>
+      <div class="vertical-desc">Auditamos modelos de IA y software para detectar errores, mejorar el diseño y optimizar la performance de los sistemas.</div>
+      <div class="vertical-services">
+        <strong>Servicios incluidos</strong>
+        AI Training · Evals &amp; Red Teaming · QA Testing
+      </div>
+    </div>
+
+    <div class="vertical-card">
+      <div class="vertical-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+      </div>
+      <div class="vertical-name">Process Automations</div>
+      <div class="vertical-desc">Diseñamos automatizaciones para reducir tareas manuales, acelerar procesos y mejorar la eficiencia operativa.</div>
+      <div class="vertical-services">
+        <strong>Servicios incluidos</strong>
+        Process Automations
+      </div>
+    </div>
+
+    <div class="vertical-card">
+      <div class="vertical-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg>
+      </div>
+      <div class="vertical-name">Digital Operations</div>
+      <div class="vertical-desc">Armamos equipos especializados para operar mesas de ayuda, moderación, onboarding y otros procesos con soporte tecnológico.</div>
+      <div class="vertical-services">
+        <strong>Servicios incluidos</strong>
+        CX Support · BPO · Content Moderation · KYC/KYB · Data Validation
+      </div>
+    </div>
+
+  </div>
+
+  <div class="clientes-blurb fade-up">
+    <div class="clientes-blurb-icon">🎯</div>
+    <div>
+      <h3>¿A quién le vendemos?</h3>
+      <p>Empresas medianas y grandes en sectores como fintech, e-commerce, salud, retail y tecnología, que necesitan escalar operaciones digitales con talento de calidad. Principalmente en Argentina, Colombia y el resto de LATAM.</p>
+      <span class="clientes-label">Clientes con los que trabajamos</span>
+      <p class="clientes-names">Mercado Libre · Mercado Pago · Despegar · Omint · Grupo Nutresa · Sura · Kavak · Pedidos Ya · Disney · DLocal · TGN</p>
     </div>
   </div>
 </section>
 
 <hr class="section-divider">
 
-<!-- 4. QUÉ IMPACTO + KIT -->
-<section id="impacto" style="">
-  <div class="container">
-    <p class="section-tag" style="border-color: rgb(157, 122, 253);">Nuestro pitch</p>
-    <h2 style="">Qué impacto <em style="font-style: normal;">estás generando</em></h2>
+<!-- 4. IMPACTO + KIT -->
+<section id="impacto">
+  <span class="section-label">Nuestro pitch</span>
+  <h2>Qué impacto <em>estás generando</em></h2>
 
-    <div class="impacto-intro">
-      <div>
-        <p class="lead" style="margin-bottom: 0px;">Cuando referís a Arbusta, no solo generás una comisión. Generás una oportunidad laboral real para un joven que el sistema no estaba mirando.</p>
+  <div class="impacto-intro fade-up">
+    <div>
+      <p class="lead" style="margin-bottom:0;">Cuando referís a Arbusta, no solo generás una comisión. Generás una oportunidad laboral real para un joven que el sistema no estaba mirando.</p>
+    </div>
+    <div>
+      <div class="hook-card">
+        <span class="hook-label">✦ abrí con esto</span>
+        <p class="hook-quote">"¿Qué pasaría si el próximo gran talento tech de tu empresa viniera de un lugar donde nadie estaba mirando?"</p>
+        <p class="hook-sub">Esa es la apuesta de Arbusta. Y ya lo están demostrando con datos.</p>
       </div>
-      <div>
-        <div class="hook-card" style="">
-          <div class="hook-label">✦ abrí con esto</div>
-          <p class="hook-quote" style="font-style: normal;">"¿Qué pasaría si el próximo gran talento tech de tu empresa viniera de un lugar donde nadie estaba mirando?"</p>
-          <p class="hook-sub" style="">Esa es la apuesta de Arbusta. Y ya lo están demostrando con datos.</p>
+    </div>
+  </div>
+
+  <div class="impacto-stats-row fade-up">
+    <div class="stat-card">
+      <div class="stat-num">43%</div>
+      <div class="stat-desc">de la juventud mundial está desempleada o vive en pobreza laboral</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">8/10</div>
+      <div class="stat-desc">jóvenes en LATAM sin empleo formal, mayor incidencia en mujeres</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">20M</div>
+      <div class="stat-desc">jóvenes en Argentina no estudian ni trabajan (2023)</div>
+    </div>
+  </div>
+
+  <!-- KIT DESCARGABLE -->
+  <div class="kit-section fade-up">
+    <div class="kit-inner">
+      <div class="kit-header">
+        <div>
+          <span class="section-label">Recurso descargable</span>
+          <h3 class="kit-title">Tu pitch de Arbusta,<br><span>listo para compartir.</span></h3>
+          <p class="kit-sub">Armamos un kit con todo el contenido que necesitás: pitch de apertura, datos de contexto, cómo responder objeciones y plantillas de cierre.</p>
+        </div>
+        <div class="kit-preview">
+          <div class="kit-preview-bar">
+            <div class="kit-dots"><span></span><span></span><span></span></div>
+            <span class="kit-preview-filename">Kit_Referidos.pdf · 7 págs</span>
+          </div>
+          <div class="kit-preview-body">
+            <div class="kit-preview-name">Kit de Contenido para Referidos</div>
+            <div class="kit-preview-pages">
+              <span class="kit-page-tag">apertura</span>
+              <span class="kit-page-tag">contexto</span>
+              <span class="kit-page-tag">solución</span>
+              <span class="kit-page-tag">resultados</span>
+              <span class="kit-page-tag">faq</span>
+              <span class="kit-page-tag">cierre</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="impacto-stats-row" style="">
-      <div class="stat-card" style="">
-        <div class="stat-num" style="">43%</div>
-        <div class="stat-desc" style="">de la juventud mundial está desempleada o vive en pobreza laboral</div>
-      </div>
-      <div class="stat-card" style="">
-        <div class="stat-num" style="">8/10</div>
-        <div class="stat-desc" style="">jóvenes en LATAM sin empleo formal, mayor incidencia en mujeres</div>
-      </div>
-      <div class="stat-card" style="">
-        <div class="stat-num" style="">20M</div>
-        <div class="stat-desc" style="">jóvenes en Argentina no estudian ni trabajan (2023)</div>
-      </div>
-    </div>
-
-    <!-- KIT DESCARGABLE -->
-    <div class="kit-section">
-      <div class="kit-inner">
-        <div class="kit-header">
+      <div class="kit-chips">
+        <div class="kit-chip">
+          <span class="kit-chip-icon">💬</span>
           <div>
-            <p class="section-tag" style="margin-bottom: 12px; border-color: rgb(157, 122, 253);">Recurso descargable</p>
-            <h3 class="kit-title" style="">Tu pitch de Arbusta,<br><span>listo para compartir.</span></h3>
-            <p class="kit-sub" style="">Armamos un kit con todo el contenido que necesitás: pitch de apertura, datos de contexto, cómo responder objeciones y plantillas de cierre.</p>
-          </div>
-          <div class="kit-preview">
-            <div class="kit-preview-bar">
-              <div class="kit-dots"><span></span><span></span><span></span></div>
-              <span class="kit-preview-filename">Kit_Referidos.pdf · 7 págs</span>
-            </div>
-            <div class="kit-preview-body">
-              <div class="kit-preview-name">Kit de Contenido para Referidos</div>
-              <div class="kit-preview-pages">
-                <span class="kit-page-tag">apertura</span>
-                <span class="kit-page-tag">contexto</span>
-                <span class="kit-page-tag">solución</span>
-                <span class="kit-page-tag">resultados</span>
-                <span class="kit-page-tag">faq</span>
-                <span class="kit-page-tag">cierre</span>
-              </div>
-            </div>
+            <div class="kit-chip-label">Pitch listo</div>
+            <div class="kit-chip-text">Versión de 30 seg y 60 seg para cada contexto</div>
           </div>
         </div>
-
-        <div class="kit-chips">
-          <div class="kit-chip">
-            <span class="kit-chip-icon">💬</span>
-            <div>
-              <div class="kit-chip-label">Pitch listo</div>
-              <div class="kit-chip-text">Versión de 30 seg y 60 seg para cada contexto</div>
-            </div>
-          </div>
-          <div class="kit-chip">
-            <span class="kit-chip-icon">📊</span>
-            <div>
-              <div class="kit-chip-label">Datos reales</div>
-              <div class="kit-chip-text">836 jóvenes · 53% mujeres · 73% continúan en IT</div>
-            </div>
-          </div>
-          <div class="kit-chip">
-            <span class="kit-chip-icon">🙋</span>
-            <div>
-              <div class="kit-chip-label">Objeciones</div>
-              <div class="kit-chip-text">Las 4 preguntas más frecuentes, respondidas</div>
-            </div>
+        <div class="kit-chip">
+          <span class="kit-chip-icon">📊</span>
+          <div>
+            <div class="kit-chip-label">Datos reales</div>
+            <div class="kit-chip-text">836 jóvenes · 53% mujeres · 73% continúan en IT</div>
           </div>
         </div>
+        <div class="kit-chip">
+          <span class="kit-chip-icon">🙋</span>
+          <div>
+            <div class="kit-chip-label">Objeciones</div>
+            <div class="kit-chip-text">Las 4 preguntas más frecuentes, respondidas</div>
+          </div>
+        </div>
+      </div>
 
-        <div class="kit-actions">
-          <a href="Arbusta_Kit_Referidos.pdf" download="" class="btn-primary" style="padding: 13px 36px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px;">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            Descargar el kit gratis
-          </a>
-          <span class="kit-pill">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-            PDF · 7 páginas
-          </span>
-        
-  <a href="Arbusta_Business_Cases.pdf" class="btn-primary" id="business-cases-btn" target="_blank" style="padding: 13px 36px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px;">
-    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-    Conocé nuestros business cases
-  </a>
-  <span class="kit-pill">
-    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-    PDF
-  </span>
-</div>
+      <div class="kit-actions">
+        <a href="Arbusta_Kit_Referidos.pdf" download class="btn-primary">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Descargar el kit gratis
+        </a>
+        <span class="kit-pill">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          PDF · 7 páginas
+        </span>
+        <a href="Arbusta_Business_Cases.pdf" target="_blank" class="btn-secondary">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Business cases
+        </a>
       </div>
     </div>
-
   </div>
 </section>
 
 <hr class="section-divider">
 
 <!-- 5. PERFIL DE BP -->
-<section id="perfil" style="">
-  <div class="container">
-    <p class="section-tag" style="border-color: rgb(157, 122, 253);">Perfil de Business Partner</p>
-    <h2 style="">¿Sos el <em style="font-style: normal;">perfil ideal</em>?</h2>
-    <p class="lead" style="">Buscamos personas con red y criterio para identificar empresas que necesitan lo que Arbusta ofrece.</p>
+<section id="perfil">
+  <span class="section-label">Perfil de Business Partner</span>
+  <h2>¿Sos el <em>perfil ideal</em>?</h2>
+  <p class="lead">Buscamos personas con red y criterio para identificar empresas que necesitan lo que Arbusta ofrece.</p>
 
-    <div class="perfil-grid">
-      <div>
-        <ul class="perfil-list">
-          <li style="">Tenés contactos en empresas medianas o grandes, en áreas de tecnología, operaciones o compras</li>
-          <li style="">Entendés qué es el outsourcing de servicios IT o BPO</li>
-          <li style="">Podés hacer una intro cálida, no una venta fría</li>
-          <li style="">Te interesa ser parte de algo con propósito, además de ganar una comisión</li>
-          <li style="">Estás activo en tu industria: eventos, LinkedIn, grupos profesionales</li>
-          <li style="">Operás en Argentina o Colombia (prioritariamente)</li>
-        </ul>
-      </div>
-      <div class="perfil-potencial">
-        <h3 style="">Lo que necesitás para ser efectivo</h3>
-        <div class="tags-cloud">
-          <span class="tag">Red de contactos B2B</span>
-          <span class="tag">Comunicación clara</span>
-          <span class="tag">Curiosidad por el tech</span>
-          <span class="tag">Credibilidad sectorial</span>
-          <span class="tag">Actitud proactiva</span>
-          <span class="tag">Empatía con el propósito</span>
-          <span class="tag">Networking activo</span>
-        </div>
+  <div class="perfil-grid fade-up">
+    <div>
+      <ul class="perfil-list">
+        <li>Tenés contactos en empresas medianas o grandes, en áreas de tecnología, operaciones o compras</li>
+        <li>Entendés qué es el outsourcing de servicios IT o BPO</li>
+        <li>Podés hacer una intro cálida, no una venta fría</li>
+        <li>Te interesa ser parte de algo con propósito, además de ganar una comisión</li>
+        <li>Estás activo en tu industria: eventos, LinkedIn, grupos profesionales</li>
+        <li>Operás en Argentina o Colombia (prioritariamente)</li>
+      </ul>
+    </div>
+    <div class="perfil-potencial">
+      <h3>Lo que necesitás para ser efectivo</h3>
+      <div class="tags-cloud">
+        <span class="tag">Red de contactos B2B</span>
+        <span class="tag">Comunicación clara</span>
+        <span class="tag">Curiosidad por el tech</span>
+        <span class="tag">Credibilidad sectorial</span>
+        <span class="tag">Actitud proactiva</span>
+        <span class="tag">Empatía con el propósito</span>
+        <span class="tag">Networking activo</span>
       </div>
     </div>
   </div>
@@ -1231,46 +299,44 @@ p.lead, .kit-sub { font-size: 1.1rem !important; }
 
 <!-- 6. CÓMO FUNCIONA -->
 <section id="como-funciona">
-  <div class="container">
-    <p class="section-tag">Proceso</p>
-    <h2>Cómo <em style="font-style: normal;">funciona</em></h2>
-    <p class="lead">Simple, transparente y sin burocracia.</p>
+  <span class="section-label">Proceso</span>
+  <h2>Cómo <em>funciona</em></h2>
+  <p class="lead">Simple, transparente y sin burocracia.</p>
 
-    <div class="steps-timeline">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <div class="step-title">Te registrás como referido</div>
-          <div class="step-desc">Completás el formulario y nos ponemos en contacto para contarte todo lo que necesitás saber sobre Arbusta y sus servicios.</div>
-        </div>
+  <div class="steps-timeline fade-up">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Te registrás como referido</div>
+        <div class="step-desc">Completás el formulario y nos ponemos en contacto para contarte todo lo que necesitás saber sobre Arbusta y sus servicios.</div>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <div class="step-title">Identificás una oportunidad</div>
-          <div class="step-desc">Pensás en tu red y encontrás una empresa que podría necesitar lo que Arbusta ofrece: QA, Data, Automatización u Operaciones Digitales.</div>
-        </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Identificás una oportunidad</div>
+        <div class="step-desc">Pensás en tu red y encontrás una empresa que podría necesitar lo que Arbusta ofrece: QA, Data, Automatización u Operaciones Digitales.</div>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <div class="step-title">Hacés la introducción</div>
-          <div class="step-desc">Presentás a Arbusta usando el kit de contenido. Solo necesitás hacer la intro cálida: el equipo comercial de Arbusta se encarga del resto.</div>
-        </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Hacés la introducción</div>
+        <div class="step-desc">Presentás a Arbusta usando el kit de contenido. Solo necesitás hacer la intro cálida: el equipo comercial de Arbusta se encarga del resto.</div>
       </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <div class="step-title">Arbusta cierra el contrato</div>
-          <div class="step-desc">Nuestro equipo lleva adelante la propuesta, negociación y firma. Te mantenemos al tanto del avance.</div>
-        </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Arbusta cierra el contrato</div>
+        <div class="step-desc">Nuestro equipo lleva adelante la propuesta, negociación y firma. Te mantenemos al tanto del avance.</div>
       </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div class="step-content">
-          <div class="step-title">Recibís tu comisión</div>
-          <div class="step-desc">Una vez firmado el contrato y cobradas las primeras facturas, recibís tu comisión acordada. Sin letra chica.</div>
-        </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Recibís tu comisión</div>
+        <div class="step-desc">Una vez firmado el contrato y cobradas las primeras facturas, recibís tu comisión acordada. Sin letra chica.</div>
       </div>
     </div>
   </div>
@@ -1279,41 +345,36 @@ p.lead, .kit-sub { font-size: 1.1rem !important; }
 <hr class="section-divider">
 
 <!-- 7. COMPENSACIÓN -->
-<section id="compensacion" style="">
-  <div class="container">
-    <div class="comp-layout">
-
-      <div class="comp-left">
-        <p class="section-tag" style="">Esquema de compensación</p>
-        <h2 style="font-size: clamp(32px, 4vw, 48px); font-weight: 800; line-height: 1.1; margin-bottom: 24px;">Transparente<br>desde el día uno</h2>
-        <p class="lead" style="max-width: 360px;">Sin sorpresas, sin letra chica. El reconocimiento es proporcional al rol que tomás en cada oportunidad.</p>
-      </div>
-
-      <div class="comp-right">
-        <ul class="comp-bullets">
-          <li style="">
-            <span class="comp-bullet-dot"></span>
-            <span><strong style="">4%</strong> por una introducción que se convierte en venta. El equipo comercial de Arbusta lleva adelante el proceso.</span>
-          </li>
-          <li style="">
-            <span class="comp-bullet-dot"></span>
-            <span><strong style="">6%</strong> por una introducción y acompañamiento durante todo el proceso de venta: reuniones con el cliente, seguimiento y firma del contrato.</span>
-          </li>
-          <li style="">
-            <span class="comp-bullet-dot"></span>
-            <span><strong style="">Sin mínimo de monto de proyecto.</strong> Evaluamos cada oportunidad y te presentamos los escenarios que hacen sentido antes de avanzar.</span>
-          </li>
-          <li style="">
-            <span class="comp-bullet-dot"></span>
-            <span>Si el cliente referido genera <strong style="">nuevos contratos durante el primer año calendario</strong>, también comisionás sobre esos deals.</span>
-          </li>
-          <li style="">
-            <span class="comp-bullet-dot"></span>
-            <span>Pago <strong style="">acordado al inicio</strong>, sobre lo efectivamente cobrado por Arbusta.</span>
-          </li>
-        </ul>
-      </div>
-
+<section id="compensacion">
+  <div class="comp-layout fade-up">
+    <div>
+      <span class="section-label">Esquema de compensación</span>
+      <h2>Transparente<br>desde el día uno</h2>
+      <p class="lead">Sin sorpresas, sin letra chica. El reconocimiento es proporcional al rol que tomás en cada oportunidad.</p>
+    </div>
+    <div>
+      <ul class="comp-bullets">
+        <li>
+          <span class="comp-bullet-dot"></span>
+          <span><strong>4%</strong> por una introducción que se convierte en venta. El equipo comercial de Arbusta lleva adelante el proceso.</span>
+        </li>
+        <li>
+          <span class="comp-bullet-dot"></span>
+          <span><strong>6%</strong> por una introducción y acompañamiento durante todo el proceso de venta: reuniones con el cliente, seguimiento y firma del contrato.</span>
+        </li>
+        <li>
+          <span class="comp-bullet-dot"></span>
+          <span><strong>Sin mínimo de monto de proyecto.</strong> Evaluamos cada oportunidad y te presentamos los escenarios que hacen sentido antes de avanzar.</span>
+        </li>
+        <li>
+          <span class="comp-bullet-dot"></span>
+          <span>Si el cliente referido genera <strong>nuevos contratos durante el primer año calendario</strong>, también comisionás sobre esos deals.</span>
+        </li>
+        <li>
+          <span class="comp-bullet-dot"></span>
+          <span>Pago <strong>acordado al inicio</strong>, sobre lo efectivamente cobrado por Arbusta.</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1322,44 +383,44 @@ p.lead, .kit-sub { font-size: 1.1rem !important; }
 
 <!-- 8. CONTACTO -->
 <section id="contacto">
-  <div class="container">
-    <p class="section-tag">Contacto</p>
-    <h2>¿Querés <em style="font-style: normal;">sumarte</em>?</h2>
-    <p class="lead">Escribile directamente a nuestros referentes según tu país. Te respondemos en menos de 48 horas.</p>
+  <span class="section-label">Contacto</span>
+  <h2>¿Querés <em>sumarte</em>?</h2>
+  <p class="lead">Escribile directamente a nuestros referentes según tu país. Te respondemos en menos de 48 horas.</p>
 
-    <div class="contacto-grid">
-      <div class="contacto-card">
-        <div class="contacto-country">🇦🇷 Argentina</div>
-        <div class="contacto-name">Tobías De Marcos</div>
-        <a href="mailto:Tobias.demarcos@arbusta.net" class="contacto-email">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          Tobias.demarcos@arbusta.net
-        </a>
-      </div>
-      <div class="contacto-card">
-        <div class="contacto-country">🇨🇴 Colombia</div>
-        <div class="contacto-name">Stephany Villa</div>
-        <a href="mailto:Stephany.villa@arbusta.net" class="contacto-email">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          Stephany.villa@arbusta.net
-        </a>
-      </div>
+  <div class="contacto-grid fade-up">
+    <div class="contacto-card">
+      <div class="contacto-country">🇦🇷 Argentina</div>
+      <div class="contacto-name">Tobías De Marcos</div>
+      <a href="mailto:tobias.demarcos@arbusta.net" class="contacto-email">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        tobias.demarcos@arbusta.net
+      </a>
+    </div>
+    <div class="contacto-card">
+      <div class="contacto-country">🇨🇴 Colombia</div>
+      <div class="contacto-name">Stephany Villa</div>
+      <a href="mailto:stephany.villa@arbusta.net" class="contacto-email">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        stephany.villa@arbusta.net
+      </a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <img src="https://arbusta.net/assets/logo-arbusta.svg" alt="Arbusta" style="height: 44px; width: auto;">
-  <span class="footer-text">© 2026 Arbusta · Programa de Referidos</span>
-  <a href="https://arbusta.net" class="footer-link" target="_blank">arbusta.net ↗</a>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="https://arbusta.net/assets/logo-arbusta.svg" alt="Arbusta">
+    </div>
+    <div class="footer-links">
+      <a href="https://arbusta.net" target="_blank">arbusta.net ↗</a>
+      <a href="https://arbusta.net/politica-privacidad-extensiones/" target="_blank">Políticas de calidad</a>
+    </div>
+    <span class="footer-copy">© 2026 Arbusta · Programa de Referidos</span>
+  </div>
 </footer>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;6935fe2838834eb4bcbc5a5feb8a80e3&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
 
-
-<div id="claude-agent-glow-border" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483646; opacity: 1; transition: opacity 0.3s ease-in-out;"><div id="claude-agent-glow-border-inner" style="position: absolute; inset: 0px; will-change: opacity; box-shadow: rgba(217, 119, 87, 0.7) 0px 0px 15px inset, rgba(217, 119, 87, 0.5) 0px 0px 25px inset, rgba(217, 119, 87, 0.2) 0px 0px 35px inset;"></div></div><div id="claude-agent-stop-container" style="position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); justify-content: center; align-items: center; pointer-events: none; z-index: 2147483647;"><button id="claude-agent-stop-button" style="position: relative; transform: translateY(0px); padding: 12px 16px; background: rgb(250, 249, 245); color: rgb(20, 20, 19); border: 0.5px solid rgba(31, 30, 29, 0.4); border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: rgba(217, 119, 87, 0.24) 0px 40px 80px, rgba(217, 119, 87, 0.24) 0px 4px 14px; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 1; user-select: none; pointer-events: auto; white-space: nowrap; margin: 0px auto;">
-      <svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" style="margin-right: 12px; vertical-align: middle;">
-        <path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm40-112v56a12,12,0,0,1-12,12H100a12,12,0,0,1-12-12V100a12,12,0,0,1,12-12h56A12,12,0,0,1,168,100Z"></path>
-      </svg>
-      <span style="vertical-align: middle;">Stop Claude</span>
-    </button></div><div id="claude-phantom-cursor" aria-hidden="true" style="position: fixed; top: 0px; left: 0px; pointer-events: none; z-index: 2147483646; transform: translate3d(575px, 400px, 0px); transition: transform 180ms cubic-bezier(0.2, 0, 0, 1); will-change: transform;"><svg id="claude-phantom-cursor-plain" width="20" height="26" viewBox="0 0 20 26" style="position: absolute; top: 0px; left: 0px; overflow: visible;"><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="white"></path><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" fill="#111"></path></svg><svg id="claude-phantom-cursor-styled" width="20" height="26" viewBox="0 0 20 26" style="position: absolute; top: 0px; left: 0px; overflow: visible; filter: drop-shadow(rgba(217, 119, 87, 0.9) 0px 0px 4px) drop-shadow(rgba(217, 119, 87, 0.45) 0px 0px 10px);"><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" stroke="#D97757" stroke-width="3" stroke-linejoin="round" fill="#D97757"></path><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" fill="#FAF9F5"></path></svg></div></body></html>
+<script src="script.js"></script>
+</body>
+</html>
