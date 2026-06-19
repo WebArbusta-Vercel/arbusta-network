@@ -163,7 +163,7 @@
         </div>
         <div class="caso-carousel-footer">
           <div class="caso-dots" id="casoDots">
-            <button class="caso-dot caso-dot-active" data-idx="0"></button><button class="caso-dot" data-idx="2"></button><button class="caso-dot" data-idx="4"></button><button class="caso-dot" data-idx="6"></button><button class="caso-dot" data-idx="8"></button>
+            <button class="caso-dot caso-dot-active" data-idx="0"></button><button class="caso-dot" data-idx="1"></button><button class="caso-dot" data-idx="2"></button><button class="caso-dot" data-idx="3"></button><button class="caso-dot" data-idx="4"></button><button class="caso-dot" data-idx="5"></button><button class="caso-dot" data-idx="6"></button><button class="caso-dot" data-idx="7"></button><button class="caso-dot" data-idx="8"></button><button class="caso-dot" data-idx="9"></button>
           </div>
           <div class="caso-arrows">
             <button class="caso-arrow" id="casoPrev">&#8592;</button>
@@ -180,50 +180,30 @@
     const dots   = document.querySelectorAll('#casoDots .caso-dot');
     if(!slides.length) return;
     let cur = 0, busy = false;
-    const MS = 350;
+    const MS = 300;
 
-    function showPair(targetIdx, dir){
+    function go(next, dir){
       if(busy) return;
-      let next = ((targetIdx % slides.length) + slides.length) % slides.length;
-      if(next % 2 !== 0) next = next - 1;
+      next = ((next % slides.length) + slides.length) % slides.length;
       if(next === cur) return;
       busy = true;
-
-      const exitA = slides[cur];
-      const exitB = slides[(cur + 1) % slides.length];
-
-      // Fase 1: salida direccional
-      // Flecha izquierda (dir<0): la de la IZQUIERDA desliza a la derecha, la de la DERECHA hace fade
-      // Flecha derecha (dir>0):   la de la IZQUIERDA hace fade, la de la DERECHA desliza a la izquierda
-      exitA.classList.remove('active');
-      exitB.classList.remove('active-next');
-      exitA.classList.add('exiting', dir < 0 ? 'exit-right' : 'exit-fade');
-      exitB.classList.add('exiting', dir < 0 ? 'exit-fade'  : 'exit-left');
-
+      const exitSlide = slides[cur];
+      exitSlide.classList.remove('active');
+      exitSlide.classList.add('exiting', dir >= 0 ? 'exit-left' : 'exit-right');
       setTimeout(() => {
-        [exitA, exitB].forEach(s => s.classList.remove('exiting','exit-right','exit-left','exit-fade'));
-
-        // Fase 2: entrada
+        exitSlide.classList.remove('exiting','exit-left','exit-right');
         cur = next;
-        const enterCls = dir >= 0 ? 'enter-right' : 'enter-left';
-        slides[cur].classList.add('active', enterCls);
-        slides[(cur + 1) % slides.length].classList.add('active-next', enterCls);
+        slides[cur].classList.add('active', dir >= 0 ? 'enter-right' : 'enter-left');
         dots.forEach(d => d.classList.remove('caso-dot-active'));
-        if(dots[cur / 2]) dots[cur / 2].classList.add('caso-dot-active');
-
-        setTimeout(() => {
-          slides[cur].classList.remove(enterCls);
-          slides[(cur + 1) % slides.length].classList.remove(enterCls);
-          busy = false;
-        }, MS);
+        if(dots[cur]) dots[cur].classList.add('caso-dot-active');
+        setTimeout(() => { slides[cur].classList.remove('enter-right','enter-left'); busy = false; }, MS);
       }, MS);
     }
 
-    dots.forEach((d, i) => d.addEventListener('click', () => showPair(i * 2, i * 2 >= cur ? 1 : -1)));
-    document.getElementById('casoPrev').addEventListener('click', () => showPair(cur - 2, -1));
-    document.getElementById('casoNext').addEventListener('click', () => showPair(cur + 2,  1));
-    setInterval(() => showPair(cur + 2, 1), 13000);
-    showPair(0, 1);
+    dots.forEach((d,i) => d.addEventListener('click', () => go(i, i >= cur ? 1 : -1)));
+    document.getElementById('casoPrev').addEventListener('click', () => go(cur - 1, -1));
+    document.getElementById('casoNext').addEventListener('click', () => go(cur + 1,  1));
+    setInterval(() => go(cur + 1, 1), 13000);
   })();
   </script>
 </section>
