@@ -175,11 +175,11 @@ h2 em { font-style: normal; color: var(--lilac); }
 .vertical-services strong { display: block; margin-bottom: 3px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.1em; color: rgba(157,122,253,0.45); }
 
 /* ── CASOS DE ÉXITO ── */
-.casos-new-inner{display:block;max-width:640px}
+.casos-new-inner{display:block;max-width:100%}
 .casos-left h2,.casos-right h2{color:var(--pink);margin-bottom:12px}
 .casos-col-header{min-height:96px;margin-bottom:20px}
-.caso-carousel{background:var(--aubergine);border:1px solid rgba(71,41,176,0.18);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-.caso-slides{position:relative;overflow:hidden;flex:1}
+.caso-carousel{border:1px solid rgba(71,41,176,0.25);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.caso-slides{width:100%}
 .caso-slide{display:none !important;animation:casoFade .3s ease}
 .caso-slide.active{display:block !important}
 .bc-img{width:100%;height:auto;display:block}
