@@ -180,17 +180,20 @@ h2 em { font-style: normal; color: var(--lilac); }
 .casos-col-header{min-height:96px;margin-bottom:20px}
 .caso-carousel{border:1px solid rgba(71,41,176,0.25);border-radius:18px;overflow:hidden}
 .caso-slides{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px}
-.caso-slide{display:none !important;animation:casoFade .3s ease}
+.caso-slide{display:none !important}
 .caso-slide.active,.caso-slide.active-next{display:block !important}
+.slide-right{animation:slideFromRight .45s ease both}
+.slide-left{animation:slideFromLeft .45s ease both}
+@keyframes slideFromRight{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:none}}
+@keyframes slideFromLeft{from{opacity:0;transform:translateX(-48px)}to{opacity:1;transform:none}}
 .bc-img{width:100%;height:auto;display:block;border-radius:10px}
-@keyframes casoFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .caso-carousel-footer{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid rgba(71,41,176,0.15);background:rgba(71,41,176,0.06)}
 .caso-dots{display:flex;gap:6px;align-items:center}
 .caso-dot{width:7px;height:7px;border-radius:50%;background:rgba(71,41,176,.2);border:none;cursor:pointer;padding:0;transition:all .2s}
 .caso-dot-active{background:var(--grape);width:18px;border-radius:4px}
 .caso-arrows{display:flex;gap:8px}
-.caso-arrow{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(71,41,176,.35);background:none;cursor:pointer;color:var(--purple);font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.caso-arrow:hover{background:var(--grape);color:#fff;border-color:var(--grape)}
+.caso-arrow{width:48px;height:48px;border-radius:50%;border:2px solid var(--grape);background:var(--grape);cursor:pointer;color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all .2s;font-weight:700}
+.caso-arrow:hover{background:var(--purple);border-color:var(--purple);transform:scale(1.08)}
 .testi-stack{display:flex;flex-direction:column;gap:0;position:relative;height:280px;overflow:hidden;flex:1}
 .testi-card-new{display:none;background:transparent;border:none;border-radius:0;padding:22px;flex-direction:column;gap:12px;animation:casoFade .3s ease;height:280px;overflow-y:auto}
 .testi-card-new.testi-active{display:flex}
