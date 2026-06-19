@@ -163,7 +163,7 @@
         </div>
         <div class="caso-carousel-footer">
           <div class="caso-dots" id="casoDots">
-            <button class="caso-dot caso-dot-active" data-idx="0"></button><button class="caso-dot" data-idx="1"></button><button class="caso-dot" data-idx="2"></button><button class="caso-dot" data-idx="3"></button><button class="caso-dot" data-idx="4"></button><button class="caso-dot" data-idx="5"></button><button class="caso-dot" data-idx="6"></button><button class="caso-dot" data-idx="7"></button><button class="caso-dot" data-idx="8"></button><button class="caso-dot" data-idx="9"></button>
+            <button class="caso-dot caso-dot-active" data-idx="0"></button><button class="caso-dot" data-idx="2"></button><button class="caso-dot" data-idx="4"></button><button class="caso-dot" data-idx="6"></button><button class="caso-dot" data-idx="8"></button>
           </div>
           <div class="caso-arrows">
             <button class="caso-arrow" id="casoPrev">&#8592;</button>
@@ -180,19 +180,23 @@
     const dots = document.querySelectorAll('#casoDots .caso-dot');
     if(!slides.length) return;
     let cur = 0;
-    function go(n){
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('caso-dot-active');
-      cur = (n + slides.length) % slides.length;
+    function showPair(startIdx){
+      slides.forEach(s => { s.classList.remove('active'); s.classList.remove('active-next'); });
+      dots.forEach(d => d.classList.remove('caso-dot-active'));
+      cur = ((startIdx % slides.length) + slides.length) % slides.length;
+      if(cur % 2 !== 0) cur = cur - 1;
       slides[cur].classList.add('active');
-      dots[cur].classList.add('caso-dot-active');
+      slides[(cur + 1) % slides.length].classList.add('active-next');
+      const dotIdx = cur / 2;
+      if(dots[dotIdx]) dots[dotIdx].classList.add('caso-dot-active');
     }
-    dots.forEach((d,i) => d.addEventListener('click', () => go(i)));
+    dots.forEach((d, i) => d.addEventListener('click', () => showPair(i * 2)));
     const prev = document.getElementById('casoPrev');
     const next = document.getElementById('casoNext');
-    if(prev) prev.addEventListener('click', () => go(cur - 1));
-    if(next) next.addEventListener('click', () => go(cur + 1));
-    setInterval(() => go(cur + 1), 13000);
+    if(prev) prev.addEventListener('click', () => showPair(cur - 2));
+    if(next) next.addEventListener('click', () => showPair(cur + 2));
+    setInterval(() => showPair(cur + 2), 13000);
+    showPair(0);
   })();
   </script>
 </section>
