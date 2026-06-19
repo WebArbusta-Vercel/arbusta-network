@@ -177,22 +177,51 @@
   <script>
   (function(){
     const slides = document.querySelectorAll('.caso-slide');
-    const dots = document.querySelectorAll('#casoDots .caso-dot');
+    const dots   = document.querySelectorAll('#casoDots .caso-dot');
     if(!slides.length) return;
-    let cur = 0;
+    let cur = 0, busy = false;
+    const MS = 350;
+
     function showPair(targetIdx, dir){
-      slides.forEach(s => s.classList.remove('active','active-next','slide-right','slide-left'));
-      dots.forEach(d => d.classList.remove('caso-dot-active'));
-      cur = ((targetIdx % slides.length) + slides.length) % slides.length;
-      if(cur % 2 !== 0) cur = cur - 1;
-      const anim = dir >= 0 ? 'slide-right' : 'slide-left';
-      slides[cur].classList.add('active', anim);
-      slides[(cur + 1) % slides.length].classList.add('active-next', anim);
-      if(dots[cur / 2]) dots[cur / 2].classList.add('caso-dot-active');
+      if(busy) return;
+      let next = ((targetIdx % slides.length) + slides.length) % slides.length;
+      if(next % 2 !== 0) next = next - 1;
+      if(next === cur) return;
+      busy = true;
+
+      const exitA = slides[cur];
+      const exitB = slides[(cur + 1) % slides.length];
+
+      // Fase 1: salida direccional
+      // Flecha izquierda (dir<0): la de la IZQUIERDA desliza a la derecha, la de la DERECHA hace fade
+      // Flecha derecha (dir>0):   la de la IZQUIERDA hace fade, la de la DERECHA desliza a la izquierda
+      exitA.classList.remove('active');
+      exitB.classList.remove('active-next');
+      exitA.classList.add('exiting', dir < 0 ? 'exit-right' : 'exit-fade');
+      exitB.classList.add('exiting', dir < 0 ? 'exit-fade'  : 'exit-left');
+
+      setTimeout(() => {
+        [exitA, exitB].forEach(s => s.classList.remove('exiting','exit-right','exit-left','exit-fade'));
+
+        // Fase 2: entrada
+        cur = next;
+        const enterCls = dir >= 0 ? 'enter-right' : 'enter-left';
+        slides[cur].classList.add('active', enterCls);
+        slides[(cur + 1) % slides.length].classList.add('active-next', enterCls);
+        dots.forEach(d => d.classList.remove('caso-dot-active'));
+        if(dots[cur / 2]) dots[cur / 2].classList.add('caso-dot-active');
+
+        setTimeout(() => {
+          slides[cur].classList.remove(enterCls);
+          slides[(cur + 1) % slides.length].classList.remove(enterCls);
+          busy = false;
+        }, MS);
+      }, MS);
     }
+
     dots.forEach((d, i) => d.addEventListener('click', () => showPair(i * 2, i * 2 >= cur ? 1 : -1)));
     document.getElementById('casoPrev').addEventListener('click', () => showPair(cur - 2, -1));
-    document.getElementById('casoNext').addEventListener('click', () => showPair(cur + 2, 1));
+    document.getElementById('casoNext').addEventListener('click', () => showPair(cur + 2,  1));
     setInterval(() => showPair(cur + 2, 1), 13000);
     showPair(0, 1);
   })();

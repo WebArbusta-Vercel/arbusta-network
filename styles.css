@@ -180,12 +180,20 @@ h2 em { font-style: normal; color: var(--lilac); }
 .casos-col-header{min-height:96px;margin-bottom:20px}
 .caso-carousel{border:1px solid rgba(71,41,176,0.25);border-radius:18px;overflow:hidden}
 .caso-slides{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px}
-.caso-slide{display:none !important}
-.caso-slide.active,.caso-slide.active-next{display:block !important}
-.slide-right{animation:slideFromRight .45s ease both}
-.slide-left{animation:slideFromLeft .45s ease both}
-@keyframes slideFromRight{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:none}}
-@keyframes slideFromLeft{from{opacity:0;transform:translateX(-48px)}to{opacity:1;transform:none}}
+.caso-slide{display:none}
+.caso-slide.active,.caso-slide.active-next,.caso-slide.exiting{display:block}
+/* Exit */
+@keyframes exitLeft  {from{opacity:1;transform:none}to{opacity:0;transform:translateX(-60px)}}
+@keyframes exitRight {from{opacity:1;transform:none}to{opacity:0;transform:translateX(60px)}}
+@keyframes exitFade  {from{opacity:1}to{opacity:0}}
+/* Enter */
+@keyframes enterRight{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:none}}
+@keyframes enterLeft {from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:none}}
+.exit-left  {animation:exitLeft   .35s ease forwards}
+.exit-right {animation:exitRight  .35s ease forwards}
+.exit-fade  {animation:exitFade   .35s ease forwards}
+.enter-right{animation:enterRight .35s ease both}
+.enter-left {animation:enterLeft  .35s ease both}
 .bc-img{width:100%;height:auto;display:block;border-radius:10px}
 .caso-carousel-footer{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid rgba(71,41,176,0.15);background:rgba(71,41,176,0.06)}
 .caso-dots{display:flex;gap:6px;align-items:center}
